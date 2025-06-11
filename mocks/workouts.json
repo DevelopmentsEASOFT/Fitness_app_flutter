@@ -1,0 +1,31 @@
+{
+  "workouts": [
+    {
+      "id": "1",
+      "title": "Cardio training sets",
+      "trainer": "Robert Fox",
+      "imageUrl": "https://yourcdn.com/images/cardio_training.jpg",
+      "type": "Premium",
+      "typeColor": "#FFD600",
+      "messages": 3
+    },
+    {
+      "id": "2",
+      "title": "Quick Push up",
+      "trainer": "Diana Richards",
+      "imageUrl": "https://yourcdn.com/images/quick_push_up.jpg",
+      "type": "Free",
+      "typeColor": "#FF5252",
+      "messages": 0
+    },
+    {
+      "id": "3",
+      "title": "Flexibility training sets",
+      "trainer": "Robert Fox",
+      "imageUrl": "https://yourcdn.com/images/flexibility_training.jpg",
+      "type": "Free",
+      "typeColor": "#FF5252",
+      "messages": 0
+    }
+  ]
+}

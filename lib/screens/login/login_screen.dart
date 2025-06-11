@@ -1,7 +1,7 @@
 import 'package:fitness_gym_app/components/input_field_custom.dart';
 import 'package:fitness_gym_app/components/primary_elevanted_button_custom.dart';
-import 'package:fitness_gym_app/core/button_styles.dart';
-import 'package:fitness_gym_app/core/text_styles.dart';
+import 'package:fitness_gym_app/core/features/button_styles.dart';
+import 'package:fitness_gym_app/core/features/text_styles.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';

@@ -1,6 +1,6 @@
 import 'package:fitness_gym_app/components/primary_elevanted_button_custom.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
-import 'package:fitness_gym_app/screens/widgets/sign_in_form.dart';
+import 'package:fitness_gym_app/screens/sing_up/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatelessWidget {
@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
             textAlign: TextAlign.center,
             style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
           ),
-          SignInForm(),
+          SignUpForm(),
           Row(
             children: [
               Expanded(

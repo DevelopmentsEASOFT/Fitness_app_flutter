@@ -1,4 +1,4 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
+import 'package:fitness_gym_app/core/features/button_styles.dart';
 import 'package:flutter/material.dart';
 
 class PrimaryElevantedButtonCustom extends StatelessWidget {

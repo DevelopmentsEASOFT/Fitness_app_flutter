@@ -1,10 +1,11 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
-import 'package:fitness_gym_app/core/text_styles.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 
-class SplashScreens extends StatelessWidget {
-  const SplashScreens({super.key});
+import '../../core/features/button_styles.dart';
+import '../../core/features/text_styles.dart';
+
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

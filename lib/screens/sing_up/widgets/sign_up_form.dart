@@ -1,8 +1,8 @@
 import 'package:fitness_gym_app/components/input_field_custom.dart';
 import 'package:flutter/material.dart';
 
-class SignInForm extends StatelessWidget {
-  const SignInForm({super.key});
+class SignUpForm extends StatelessWidget {
+  const SignUpForm({super.key});
 
   @override
   Widget build(BuildContext context) {

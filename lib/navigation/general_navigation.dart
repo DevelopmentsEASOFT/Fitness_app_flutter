@@ -1,8 +1,8 @@
-import 'package:fitness_gym_app/screens/home_screen.dart';
-import 'package:fitness_gym_app/screens/login_screen.dart';
-import 'package:fitness_gym_app/screens/sign_up_screen.dart';
-import 'package:fitness_gym_app/screens/splash_screen.dart';
-import 'package:fitness_gym_app/screens/type_login_screen.dart';
+import 'package:fitness_gym_app/screens/home/home_screen.dart';
+import 'package:fitness_gym_app/screens/login/login_screen.dart';
+import 'package:fitness_gym_app/screens/sing_up/sign_up_screen.dart';
+import 'package:fitness_gym_app/screens/login/type_login_screen.dart';
+import 'package:fitness_gym_app/screens/welcome/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -19,7 +19,7 @@ class GeneralNavigation {
       GoRoute(
         path: _splashScreens,
         builder: (BuildContext context, GoRouterState state) {
-          return const SplashScreens();
+          return const WelcomeScreen();
         },
         routes: <RouteBase>[
           GoRoute(

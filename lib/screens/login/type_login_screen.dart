@@ -1,5 +1,5 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
-import 'package:fitness_gym_app/core/text_styles.dart';
+import 'package:fitness_gym_app/core/features/button_styles.dart';
+import 'package:fitness_gym_app/core/features/text_styles.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -35,7 +35,7 @@ class TypeLoginScreens extends StatelessWidget {
           // Contenido principal
           Positioned.fill(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 70.0),
+              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
