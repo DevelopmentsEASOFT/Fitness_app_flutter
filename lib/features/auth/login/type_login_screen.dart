@@ -1,14 +1,20 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
-import 'package:fitness_gym_app/core/text_styles.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../../core/features/app_sizes.dart';
+import '../../../core/features/apps_colors.dart';
+import '../../../core/features/button_styles.dart';
+import '../../../core/features/text_styles.dart';
 
 class TypeLoginScreens extends StatelessWidget {
   const TypeLoginScreens({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -35,27 +41,30 @@ class TypeLoginScreens extends StatelessWidget {
           // Contenido principal
           Positioned.fill(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 70.0),
+              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 50.0),
+                    padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.1),
                     child: Column(
                       children: [
-                        Text("Track your Activity", style: TextStyles.heading1White),
-                        const SizedBox(height: 20),
-                        Text("Track your Fitness and workout", style: TextStyles.bodyText),
+                        Text(l10n.type_login_title, style: TextStyles.heading1White),
+                        AppSizes.gapH20,
+                        Text(l10n.type_login_subtitle, style: TextStyles.bodyText),
                       ],
                     ),
                   ),
-                  const SizedBox(height: 50),
+                  AppSizes.gapH50,
                   Row(
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.01,
+                            horizontal: MediaQuery.of(context).size.height * 0.01,
+                          ),
                           child: ElevatedButton(
                             onPressed: () => GeneralNavigation.goToSignUp(context),
                             style: ButtonStyles.primaryButton,
@@ -63,8 +72,8 @@ class TypeLoginScreens extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/email_icon.svg', height: 24, width: 24),
-                                const SizedBox(width: 12),
-                                Text("Continue with Email", style: TextStyles.buttonText),
+                                AppSizes.gapH12,
+                                Text(l10n.type_login_email, style: TextStyles.buttonText),
                               ],
                             ),
                           ),
@@ -76,7 +85,10 @@ class TypeLoginScreens extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.01,
+                            horizontal: MediaQuery.of(context).size.height * 0.01,
+                          ),
                           child: ElevatedButton(
                             onPressed: () {},
                             style: ButtonStyles.secondaryButton,
@@ -84,8 +96,8 @@ class TypeLoginScreens extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/google_icon.svg', height: 24, width: 24),
-                                const SizedBox(width: 12),
-                                Text("Continue with Google", style: TextStyles.buttonTextDark),
+                                AppSizes.gapH12,
+                                Text(l10n.type_login_google, style: TextStyles.buttonTextDark),
                               ],
                             ),
                           ),
@@ -93,16 +105,16 @@ class TypeLoginScreens extends StatelessWidget {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 16),
+                  AppSizes.gapH16,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text("Already registered? ", style: TextStyles.bodyText),
+                      Text(l10n.type_login_already_registered, style: TextStyles.bodyText),
                       TextButton(
                         onPressed: () => GeneralNavigation.goToLogin(context),
-                        child: const Text(
-                          "Sign In",
-                          style: TextStyle(color: Color(0xFFB388FF), fontWeight: FontWeight.bold),
+                        child: Text(
+                          l10n.type_login_signin,
+                          style: const TextStyle(color: AppsColors.primaryColor, fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],

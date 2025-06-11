@@ -1,10 +1,15 @@
-import 'package:fitness_gym_app/screens/home_screen.dart';
-import 'package:fitness_gym_app/screens/login_screen.dart';
-import 'package:fitness_gym_app/screens/sign_up_screen.dart';
-import 'package:fitness_gym_app/screens/splash_screen.dart';
-import 'package:fitness_gym_app/screens/type_login_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+
+import '../data/models/workout.dart';
+import '../features/profile/edit_profile/edit_profile_screen.dart';
+import '../features/home/home_screen.dart';
+import '../features/auth/login/login_screen.dart';
+import '../features/auth/sing_up/sign_up_screen.dart';
+import '../features/auth/login/type_login_screen.dart';
+import '../features/auth/welcome_screen.dart';
+import '../features/profile/user_profile_screen.dart';
+import '../features/workouts/workout_details_screen.dart';
 
 class GeneralNavigation {
   static final _splashScreens = '/'; // '/splash';
@@ -12,14 +17,17 @@ class GeneralNavigation {
   static final _signUpRouteName = 'signup';
   static final _signInScreenName = 'signIn';
   static final _homeRouteName = 'home';
+  static final _workoutDetailRouteName = 'workoutDetail';
+  static final _userProfileRouteName = 'userProfile';
+  static final _editProfileRouteName = 'editProfile';
 
   /// The route configuration.
-  final GoRouter routerConfig = GoRouter(
+  static final GoRouter routerConfig = GoRouter(
     routes: <RouteBase>[
       GoRoute(
         path: _splashScreens,
         builder: (BuildContext context, GoRouterState state) {
-          return const SplashScreens();
+          return const WelcomeScreen();
         },
         routes: <RouteBase>[
           GoRoute(
@@ -50,6 +58,31 @@ class GeneralNavigation {
               return const HomeScreen();
             },
           ),
+          GoRoute(
+            path: _workoutDetailRouteName,
+            name: _workoutDetailRouteName,
+            builder: (BuildContext context, GoRouterState state) {
+              final workout = state.extra as Workout?;
+              if (workout == null) {
+                return const HomeScreen(); // or handle error
+              }
+              return WorkoutDetailsScreen(workout: workout);
+            },
+          ),
+          GoRoute(
+            path: _userProfileRouteName,
+            name: _userProfileRouteName,
+            builder: (BuildContext context, GoRouterState state) {
+              return const UserProfileScreen();
+            },
+          ),
+          GoRoute(
+            path: _editProfileRouteName,
+            name: _editProfileRouteName,
+            builder: (BuildContext context, GoRouterState state) {
+              return const EditProfileScreen();
+            },
+          ),
         ],
       ),
     ],
@@ -69,5 +102,17 @@ class GeneralNavigation {
 
   static void goToHome(BuildContext context) {
     context.pushNamed(_homeRouteName);
+  }
+
+  static void goToWorkoutDetails(BuildContext context, Workout workout) {
+    context.pushNamed(_workoutDetailRouteName, extra: workout);
+  }
+
+  static void goToUserProfile(BuildContext context) {
+    context.pushNamed(_userProfileRouteName);
+  }
+
+  static void goToEditProfile(BuildContext context) {
+    context.pushNamed(_editProfileRouteName);
   }
 }

@@ -1,12 +1,13 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
 import 'package:flutter/material.dart';
 
-class PrimaryElevantedButtonCustom extends StatelessWidget {
+import '../../core/features/button_styles.dart';
+
+class PrimaryElevatedButtonCustom extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   final bool isLoading;
 
-  const PrimaryElevantedButtonCustom({super.key, required this.text, required this.onPressed, this.isLoading = false});
+  const PrimaryElevatedButtonCustom({super.key, required this.text, required this.onPressed, this.isLoading = false});
 
   @override
   Widget build(BuildContext context) {

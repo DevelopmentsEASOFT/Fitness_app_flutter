@@ -27,7 +27,10 @@ class InputFieldCustom extends StatelessWidget {
         hintText: hint,
         hintStyle: const TextStyle(color: Colors.white54),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
-        contentPadding: const EdgeInsets.symmetric(vertical: 18),
+        contentPadding: EdgeInsets.symmetric(
+          vertical: MediaQuery.of(context).size.height * 0.02,
+          horizontal: MediaQuery.of(context).size.height * 0.02,
+        ),
       ),
     );
   }

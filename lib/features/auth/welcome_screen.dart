@@ -1,13 +1,18 @@
-import 'package:fitness_gym_app/core/button_styles.dart';
-import 'package:fitness_gym_app/core/text_styles.dart';
-import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-class SplashScreens extends StatelessWidget {
-  const SplashScreens({super.key});
+import '../../core/features/app_sizes.dart';
+import '../../core/features/button_styles.dart';
+import '../../core/features/text_styles.dart';
+import '../../navigation/general_navigation.dart';
+
+class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       body: Stack(
         children: [
@@ -18,7 +23,7 @@ class SplashScreens extends StatelessWidget {
                 gradient: LinearGradient(
                   begin: Alignment.topCenter,
                   end: Alignment.bottomCenter,
-                  colors: [Colors.transparent, Colors.black87, Colors.black],
+                  colors: [Colors.transparent, Colors.black87, Colors.black], //TODO: migrara a AppsColors
                   stops: [0.0, 0.6, 1.0],
                 ),
               ),
@@ -26,23 +31,27 @@ class SplashScreens extends StatelessWidget {
           ),
           Positioned.fill(
             child: Padding(
-              padding: const EdgeInsets.only(bottom: 70.0),
+              padding: EdgeInsets.symmetric(vertical: MediaQuery.of(context).size.height * 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("Track your Activity", style: TextStyles.heading1White),
-                  Text("Track your Fitness and workout", style: TextStyles.bodyText),
-                  const SizedBox(height: 20),
+                  Text(l10n.title_welcome, style: TextStyles.heading1White),
+                  AppSizes.gapH5,
+                  Text(l10n.txt_welcome, style: TextStyles.bodyTextWhite, textAlign: TextAlign.center),
+                  AppSizes.gapH20,
                   Row(
                     children: [
                       Expanded(
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.symmetric(
+                            vertical: MediaQuery.of(context).size.height * 0.01,
+                            horizontal: MediaQuery.of(context).size.height * 0.01,
+                          ),
                           child: ElevatedButton(
                             onPressed: () => GeneralNavigation.pushTypelogin(context),
                             style: ButtonStyles.primaryButton,
-                            child: Text("Get Started", style: TextStyles.buttonText),
+                            child: Text(l10n.btn_start, style: TextStyles.buttonText),
                           ),
                         ),
                       ),
