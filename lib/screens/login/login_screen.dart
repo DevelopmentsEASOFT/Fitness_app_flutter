@@ -5,33 +5,46 @@ import 'package:fitness_gym_app/core/features/text_styles.dart';
 import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            'Glad to see you again!',
+            l10n.login_title,
             textAlign: TextAlign.center,
-            style: TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
+            style: const TextStyle(color: Colors.white, fontSize: 26, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
-          InputFieldCustom(icon: Icons.person, hint: "Username", obscureText: false, suffixIcon: Icons.check_circle),
+          InputFieldCustom(
+            icon: Icons.person,
+            hint: l10n.login_username_hint,
+            obscureText: false,
+            suffixIcon: Icons.check_circle,
+          ),
           const SizedBox(height: 16),
-          InputFieldCustom(icon: Icons.lock, hint: "Password", obscureText: true, suffixIcon: Icons.visibility_off),
+          InputFieldCustom(
+            icon: Icons.lock,
+            hint: l10n.login_password_hint,
+            obscureText: true,
+            suffixIcon: Icons.visibility_off,
+          ),
           const SizedBox(height: 16),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               TextButton(
                 onPressed: () {},
-                child: const Text("Forgot Password?", style: TextStyle(color: Colors.white70)),
+                child: Text(l10n.login_forgot_password, style: const TextStyle(color: Colors.white70)),
               ),
             ],
           ),
@@ -40,7 +53,7 @@ class LoginScreen extends StatelessWidget {
             height: 54,
             child: PrimaryElevantedButtonCustom(
               onPressed: () => GeneralNavigation.goToHome(context),
-              text: "Login Now",
+              text: l10n.login_button,
               isLoading: false,
             ),
           ),
@@ -53,7 +66,7 @@ class LoginScreen extends StatelessWidget {
               children: [
                 SvgPicture.asset('assets/icons/google_icon.svg', height: 24, width: 24),
                 const SizedBox(width: 12),
-                Text("Continue with Google", style: TextStyles.buttonTextDark),
+                Text(l10n.login_google, style: TextStyles.buttonTextDark),
               ],
             ),
           ),
@@ -61,10 +74,13 @@ class LoginScreen extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text("Don't have an account ", style: TextStyle(color: Colors.white70)),
+              Text(l10n.login_no_account, style: const TextStyle(color: Colors.white70)),
               TextButton(
                 onPressed: () => GeneralNavigation.goToSignUp(context),
-                child: const Text("Sign Up", style: TextStyle(color: Color(0xFFB388FF), fontWeight: FontWeight.bold)),
+                child: Text(
+                  l10n.login_signup,
+                  style: const TextStyle(color: Color(0xFFB388FF), fontWeight: FontWeight.bold),
+                ),
               ),
             ],
           ),

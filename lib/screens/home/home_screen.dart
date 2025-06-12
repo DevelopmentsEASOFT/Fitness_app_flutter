@@ -2,6 +2,10 @@ import 'package:fitness_gym_app/core/features/text_styles.dart';
 import 'package:fitness_gym_app/data/models/workout_home.dart';
 import 'package:fitness_gym_app/data/repository/repository.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import '../../navigation/general_navigation.dart';
+import 'widgets/workout_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -27,27 +31,19 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     final Future<WorkoutHome> workoutList = _showListWorkout();
+    final userName = "Andres Esquivel"; // Puedes obtenerlo dinámicamente si lo tienes
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Good Morning!\nAndres Esquivel', style: TextStyles.bodyTextWhite),
+        title: Text(l10n.home_greeting(userName), style: TextStyles.bodyTextWhite),
         backgroundColor: Colors.black,
         iconTheme: const IconThemeData(color: Colors.white),
         foregroundColor: Colors.white,
-
         actions: [
-          IconButton(
-            icon: const Icon(Icons.notifications),
-            onPressed: () {
-              // Handle notifications
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.settings),
-            onPressed: () {
-              // Handle settings
-            },
-          ),
+          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
+          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
         ],
       ),
       backgroundColor: Colors.black,
@@ -60,17 +56,21 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
             unselectedLabelColor: Colors.grey,
             controller: _tabController,
             isScrollable: true,
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            tabs: [Tab(child: Text('My Workouts')), Tab(child: Text('Nutritions')), Tab(child: Text('Discover'))],
-            indicatorColor: Color.fromARGB(255, 114, 93, 238),
+            padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height * 0.01),
+            tabs: [
+              Tab(child: Text(l10n.tab_my_workouts)),
+              Tab(child: Text(l10n.tab_nutritions)),
+              Tab(child: Text(l10n.tab_discover)),
+            ],
+            indicatorColor: const Color.fromARGB(255, 114, 93, 238),
           ),
           Expanded(
             child: TabBarView(
               controller: _tabController,
               children: [
                 WorkoutList(workoutList: workoutList),
-                Center(child: Text('Planes de nutrición', style: TextStyles.bodyTextWhite)),
-                Center(child: Text('Novedades', style: TextStyles.bodyTextWhite)),
+                Center(child: Text(l10n.tab_nutritions, style: TextStyles.bodyTextWhite)),
+                Center(child: Text(l10n.tab_discover, style: TextStyles.bodyTextWhite)),
               ],
             ),
           ),
@@ -78,16 +78,27 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.black,
-        selectedItemColor: Color.fromARGB(255, 114, 93, 238),
+        selectedItemColor: const Color.fromARGB(255, 114, 93, 238),
         unselectedItemColor: Colors.grey,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.work), label: 'Workout'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
+        items: [
+          BottomNavigationBarItem(icon: const Icon(Icons.home), label: l10n.tab_my_workouts),
+          BottomNavigationBarItem(icon: const Icon(Icons.work), label: l10n.tab_nutritions),
+          BottomNavigationBarItem(icon: const Icon(Icons.person), label: l10n.tab_profile),
         ],
         currentIndex: 0,
         onTap: (index) {
-          // Handle navigation based on index
+          // Handle bottom navigation bar taps
+          switch (index) {
+            case 0:
+              // Home tab
+              break;
+            case 1:
+              // Workouts tab
+              break;
+            case 2:
+              GeneralNavigation.goToUserProfile(context);
+              break;
+          }
         },
       ),
     );
@@ -102,67 +113,5 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
       print('Error fetching workouts: $error');
       throw Exception('Failed to fetch workouts');
     }
-  }
-}
-
-class WorkoutList extends StatelessWidget {
-  const WorkoutList({super.key, required this.workoutList});
-
-  final Future<WorkoutHome> workoutList;
-
-  @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<WorkoutHome>(
-      future: workoutList,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return const Center(child: CircularProgressIndicator());
-        } else if (snapshot.hasError) {
-          return Center(child: Text('Error: ${snapshot.error}', style: TextStyles.bodyTextWhite));
-        } else if (!snapshot.hasData || snapshot.data!.workouts.isEmpty) {
-          return Center(child: Text('No workouts found', style: TextStyles.bodyTextWhite));
-        }
-        final workouts = snapshot.data?.workouts ?? [];
-
-        return ListView.builder(
-          itemCount: workouts.length,
-          itemBuilder: (context, index) {
-            final workout = workouts[index];
-            return Container(
-              margin: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 10.0),
-              decoration: BoxDecoration(
-                color: Colors.black,
-                borderRadius: BorderRadius.circular(20.0),
-                image: DecorationImage(image: AssetImage('assets/images/workout_gym.jpg'), fit: BoxFit.cover),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 20.0, bottom: 20.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(workout.type, style: TextStyles.bodyTextWhite),
-                    SizedBox(height: 50.0),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(workout.title, style: TextStyles.heading1White),
-                            Text(workout.trainer, style: TextStyles.bodyTextWhite),
-                          ],
-                        ),
-                        Icon(Icons.favorite, color: Colors.white),
-                      ],
-                    ),
-                  ],
-                ),
-              ),
-            );
-          },
-        );
-      },
-    );
   }
 }
