@@ -20,9 +20,6 @@ class GeneralNavigation {
   static final _workoutDetailRouteName = 'workoutDetail';
   static final _userProfileRouteName = 'userProfile';
   static final _editProfileRouteName = 'editProfile';
-  static final _workoutDetailRouteName = 'workoutDetail';
-  static final _userProfileRouteName = 'userProfile';
-  static final _editProfileRouteName = 'editProfile';
 
   /// The route configuration.
   static final GoRouter routerConfig = GoRouter(
@@ -30,7 +27,6 @@ class GeneralNavigation {
       GoRoute(
         path: _splashScreens,
         builder: (BuildContext context, GoRouterState state) {
-          return const WelcomeScreen();
           return const WelcomeScreen();
         },
         routes: <RouteBase>[
@@ -87,31 +83,6 @@ class GeneralNavigation {
               return const EditProfileScreen();
             },
           ),
-          GoRoute(
-            path: _workoutDetailRouteName,
-            name: _workoutDetailRouteName,
-            builder: (BuildContext context, GoRouterState state) {
-              final workout = state.extra as Workout?;
-              if (workout == null) {
-                return const HomeScreen(); // or handle error
-              }
-              return WorkoutDetailsScreen(workout: workout);
-            },
-          ),
-          GoRoute(
-            path: _userProfileRouteName,
-            name: _userProfileRouteName,
-            builder: (BuildContext context, GoRouterState state) {
-              return const UserProfileScreen();
-            },
-          ),
-          GoRoute(
-            path: _editProfileRouteName,
-            name: _editProfileRouteName,
-            builder: (BuildContext context, GoRouterState state) {
-              return const EditProfileScreen();
-            },
-          ),
         ],
       ),
     ],
@@ -131,18 +102,6 @@ class GeneralNavigation {
 
   static void goToHome(BuildContext context) {
     context.pushNamed(_homeRouteName);
-  }
-
-  static void goToWorkoutDetails(BuildContext context, Workout workout) {
-    context.pushNamed(_workoutDetailRouteName, extra: workout);
-  }
-
-  static void goToUserProfile(BuildContext context) {
-    context.pushNamed(_userProfileRouteName);
-  }
-
-  static void goToEditProfile(BuildContext context) {
-    context.pushNamed(_editProfileRouteName);
   }
 
   static void goToWorkoutDetails(BuildContext context, Workout workout) {

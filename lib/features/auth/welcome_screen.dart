@@ -1,4 +1,3 @@
-<<<<<<<< HEAD:lib/features/auth/welcome_screen.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -6,14 +5,6 @@ import '../../core/features/app_sizes.dart';
 import '../../core/features/button_styles.dart';
 import '../../core/features/text_styles.dart';
 import '../../navigation/general_navigation.dart';
-========
-import 'package:fitness_gym_app/navigation/general_navigation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart'; // Importa l10n
-
-import '../../core/features/button_styles.dart';
-import '../../core/features/text_styles.dart';
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/welcome/welcome_screen.dart
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -46,15 +37,9 @@ class WelcomeScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(l10n.title_welcome, style: TextStyles.heading1White),
-<<<<<<<< HEAD:lib/features/auth/welcome_screen.dart
                   AppSizes.gapH5,
                   Text(l10n.txt_welcome, style: TextStyles.bodyTextWhite, textAlign: TextAlign.center),
                   AppSizes.gapH20,
-========
-                  SizedBox(height: 5),
-                  Text(l10n.txt_welcome, style: TextStyles.bodyText, textAlign: TextAlign.center),
-                  const SizedBox(height: 20),
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/welcome/welcome_screen.dart
                   Row(
                     children: [
                       Expanded(

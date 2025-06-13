@@ -1,20 +1,12 @@
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
-========
-import 'package:fitness_gym_app/core/features/button_styles.dart';
-import 'package:fitness_gym_app/core/features/text_styles.dart';
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
-import 'package:fitness_gym_app/navigation/general_navigation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
 
 import '../../../core/features/app_sizes.dart';
 import '../../../core/features/apps_colors.dart';
 import '../../../core/features/button_styles.dart';
 import '../../../core/features/text_styles.dart';
-========
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
+import '../../../navigation/general_navigation.dart';
 
 class TypeLoginScreens extends StatelessWidget {
   const TypeLoginScreens({super.key});
@@ -59,11 +51,9 @@ class TypeLoginScreens extends StatelessWidget {
                     child: Column(
                       children: [
                         Text(l10n.type_login_title, style: TextStyles.heading1White),
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
                         AppSizes.gapH20,
-========
+
                         const SizedBox(height: 20),
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
                         Text(l10n.type_login_subtitle, style: TextStyles.bodyText),
                       ],
                     ),
@@ -84,11 +74,8 @@ class TypeLoginScreens extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/email_icon.svg', height: 24, width: 24),
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
                                 AppSizes.gapH12,
-========
                                 const SizedBox(width: 12),
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
                                 Text(l10n.type_login_email, style: TextStyles.buttonText),
                               ],
                             ),
@@ -112,11 +99,8 @@ class TypeLoginScreens extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/google_icon.svg', height: 24, width: 24),
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
                                 AppSizes.gapH12,
-========
                                 const SizedBox(width: 12),
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
                                 Text(l10n.type_login_google, style: TextStyles.buttonTextDark),
                               ],
                             ),
@@ -129,16 +113,12 @@ class TypeLoginScreens extends StatelessWidget {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(l10n.type_login_already_registered, style: TextStyles.bodyText),
+                      Text(l10n.type_login_already_registered, style: TextStyles.bodyTextWhite),
                       TextButton(
                         onPressed: () => GeneralNavigation.goToLogin(context),
                         child: Text(
                           l10n.type_login_signin,
-<<<<<<<< HEAD:lib/features/auth/login/type_login_screen.dart
                           style: const TextStyle(color: AppsColors.primaryColor, fontWeight: FontWeight.bold),
-========
-                          style: const TextStyle(color: Color(0xFFB388FF), fontWeight: FontWeight.bold),
->>>>>>>> bee0cf8132143219c4235634447c2b6d4e5ca172:lib/screens/login/type_login_screen.dart
                         ),
                       ),
                     ],
