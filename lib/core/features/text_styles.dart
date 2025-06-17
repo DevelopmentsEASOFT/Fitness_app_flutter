@@ -10,6 +10,17 @@ class TextStyles {
     color: AppsColors.whiteColor,
   );
   static final TextStyle heading2 = TextStyle(fontSize: 20, fontWeight: FontWeight.w600, color: AppsColors.blackColor);
+  static final TextStyle heading2White = TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeight.w600,
+    color: AppsColors.whiteColor,
+  );
+  static final TextStyle heading3White = TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeight.bold,
+    color: AppsColors.whiteColor,
+  );
+
   static final TextStyle bodyText = TextStyle(
     fontSize: 16,
     fontWeight: FontWeight.normal,

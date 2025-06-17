@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/features/apps_colors.dart';
 import '../../core/features/button_styles.dart';
 
 class PrimaryElevatedButtonCustom extends StatelessWidget {
@@ -13,8 +14,18 @@ class PrimaryElevatedButtonCustom extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       style: ButtonStyles.primaryButton,
-      onPressed: onPressed,
-      child: Text(text, style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold)),
+      onPressed: isLoading ? null : onPressed,
+      child:
+          isLoading
+              ? const SizedBox(
+                width: 24,
+                height: 24,
+                child: CircularProgressIndicator(color: AppsColors.whiteColor, strokeWidth: 2),
+              )
+              : Text(
+                text,
+                style: const TextStyle(color: AppsColors.whiteColor, fontSize: 18, fontWeight: FontWeight.bold),
+              ),
     );
   }
 }

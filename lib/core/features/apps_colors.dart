@@ -9,4 +9,5 @@ class AppsColors {
   static const Color successColor = Color(0xC23C9E40);
   static const Color warningColor = Color.fromARGB(255, 200, 198, 39);
   static const Color grayColor = Color(0xFF716D6D);
+  static const Color fillColor = Color(0xFF2C2C2C);
 }

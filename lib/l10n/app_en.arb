@@ -15,6 +15,13 @@
     "signup_button": "Sign Up",
     "signup_already_registered": "Already registered? ",
     "signup_signin": "Sign In",
+    "signup_name_required": "Name is required",
+    "signup_email_required": "Email is required",
+    "signup_phone_required": "Phone number is required",
+    "signup_password_required": "Password is required",
+    "signup_email_invalid": "Please enter a valid email address",
+    "signup_phone_invalid": "Please enter a valid phone number",
+    "signup_password_min_length": "Password must be at least 6 characters long",
 
     "login_title": "Glad to see you again!",
     "login_username_hint": "Username",
@@ -24,6 +31,9 @@
     "login_google": "Continue with Google",
     "login_no_account": "Don't have an account ",
     "login_signup": "Sign Up",
+    "login_username_required": "Username is required",
+    "login_password_required": "Password is required",
+    "login_error": "Login failed. Please check your credentials and try again.",
 
     "type_login_title": "Track your Activity",
     "type_login_subtitle": "Track your Fitness and workout",

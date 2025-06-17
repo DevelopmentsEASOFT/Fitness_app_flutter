@@ -9,7 +9,7 @@ import '../features/auth/sing_up/sign_up_screen.dart';
 import '../features/auth/login/type_login_screen.dart';
 import '../features/auth/welcome_screen.dart';
 import '../features/profile/user_profile_screen.dart';
-import '../features/workouts/workout_details_screen.dart';
+import '../features/workouts/view/workout_details_screen.dart';
 
 class GeneralNavigation {
   static final _splashScreens = '/'; // '/splash';

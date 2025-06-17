@@ -1,0 +1,10 @@
+{
+  "success": true,
+  "token": "",
+  "user": {
+    "id": 1,
+    "username": "demo",
+    "email": "demo@email.com",
+    "name": "Demo User"
+  }
+}
