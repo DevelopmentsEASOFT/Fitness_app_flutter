@@ -1,0 +1,284 @@
+{
+  "uuid": "4c28d0bc-e1e6-4719-b556-58cef632f5ff",
+  "lastMigration": 33,
+  "name": "App Fitness",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3002,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "91ce1a36-cc33-4410-9554-8d3a79f84a23",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "26289104-1a61-47a1-be6f-822ee6640b1e",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "4b79d33a-bc83-4178-a4b1-04cd4dae2bd1",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "workouts",
+      "responses": [
+        {
+          "uuid": "735934ca-538e-4157-9e90-4f1176cc7dcc",
+          "body": "{\n  \"workouts\": [\n    {\n      \"id\": 1,\n      \"title\": \"Cardio training sets\",\n      \"trainer\": \"Robert Fox\",\n      \"imageUrl\": \"\",\n      \"type\": \"Premium\",\n      \"typeColor\": \"#FFD600\",\n      \"messages\": 3\n    },\n    {\n      \"id\": 2,\n      \"title\": \"Quick Push up\",\n      \"trainer\": \"Diana Richards\",\n      \"imageUrl\": \"\",\n      \"type\": \"Free\",\n      \"typeColor\": \"#FF5252\",\n      \"messages\": 0\n    },\n    {\n      \"id\": 3,\n      \"title\": \"Flexibility training sets\",\n      \"trainer\": \"Robert Fox\",\n      \"imageUrl\": \"\",\n      \"type\": \"Free\",\n      \"typeColor\": \"#FF5252\",\n      \"messages\": 0\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "31b83503-bb21-454c-8f49-962cff0bb512",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "login",
+      "responses": [
+        {
+          "uuid": "d559c0cd-c674-4728-b1c3-12d67a7b615e",
+          "body": "{\n  \"success\": true,\n  \"token\": \"\",\n  \"user\": {\n    \"id\": 1,\n    \"username\": \"demo\",\n    \"email\": \"demo@email.com\",\n    \"name\": \"Demo User\"\n  }\n}",
+          "latency": 1000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [
+            {
+              "target": "body",
+              "modifier": "$.username",
+              "value": "andres",
+              "invert": false,
+              "operator": "equals"
+            },
+            {
+              "target": "body",
+              "modifier": "$.password",
+              "value": "1234",
+              "invert": false,
+              "operator": "equals"
+            }
+          ],
+          "rulesOperator": "AND",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "27846022-f42b-41bf-9164-5dc210f8724d",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "signup",
+      "responses": [
+        {
+          "uuid": "67f2814d-721d-4d19-bb9e-003a55df49f6",
+          "body": "{\n  \"success\": true,\n  \"user\": {\n    \"id\": 1,\n    \"name\": \"John Doe\",\n    \"email\": \"john@example.com\",\n    \"phone\": \"+1234567890\"\n  },\n  \"token\": \"...\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "2c51bffa-3f48-49c2-86a8-c05948ca4a10",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "workouts/details",
+      "responses": [
+        {
+          "uuid": "9805ab7f-6118-4ccf-898b-4b81b389e60d",
+          "body": "{\n  \"id\": 1,\n  \"overview\": {\n    \"title\": \"Cardio workout sets\",\n    \"trainer\": {\n      \"name\": \"Scott Parker\",\n      \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"role\": \"Professional trainer\"\n    },\n    \"exercisesCount\": 12,\n    \"isFavorite\": false,\n    \"duration\": \"20 min\",\n    \"level\": \"Intermediate\",\n    \"description\": \"In this workout program, I’ll help you to increase your cardio healthiness with a set of exclusive exercises. Suitable for all fitness levels.\",\n    \"isPremium\": true,\n    \"rating\": 4.8,\n    \"reviewsCount\": 1200,\n    \"consultationAvailable\": true,\n    \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n  },\n  \"exercises\": [\n    {\n      \"id\": 101,\n      \"name\": \"Jump rope\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\"\n    },\n    {\n      \"id\": 102,\n      \"name\": \"Jumping jacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\"\n    },\n    {\n      \"id\": 103,\n      \"name\": \"Jog in place\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"02:00\"\n    },\n    {\n      \"id\": 104,\n      \"name\": \"Split snatches\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 105,\n      \"name\": \"Squat thrust split jumps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 106,\n      \"name\": \"Plyometric woodchopper\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 107,\n      \"name\": \"Plank jack\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"01:00\"\n    },\n    {\n      \"id\": 108,\n      \"name\": \"Skaters\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 109,\n      \"name\": \"Rollbacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 110,\n      \"name\": \"Burpee 180 jump\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"15x\"\n    },\n    {\n      \"id\": 111,\n      \"name\": \"Lateral toe taps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"10x\"\n    }\n  ],\n  \"reviews\": [\n    {\n      \"user\": {\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 5,\n      \"comment\": \"Great workout! Really improved my cardio.\",\n      \"date\": \"2024-06-15\"\n    },\n    {\n      \"user\": {\n        \"name\": \"You\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 4,\n      \"comment\": \"Challenging but worth it!\",\n      \"date\": \"2024-06-16\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "805512d0-5795-4ec7-96dd-8fbc977fe1cf",
+      "type": "http",
+      "documentation": "",
+      "method": "post",
+      "endpoint": "workouts/favorite",
+      "responses": [
+        {
+          "uuid": "67ba917e-6166-4695-aafc-095a9fc094ee",
+          "body": "{\n  \"success\": true\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "91ce1a36-cc33-4410-9554-8d3a79f84a23"
+    },
+    {
+      "type": "route",
+      "uuid": "4b79d33a-bc83-4178-a4b1-04cd4dae2bd1"
+    },
+    {
+      "type": "route",
+      "uuid": "31b83503-bb21-454c-8f49-962cff0bb512"
+    },
+    {
+      "type": "route",
+      "uuid": "27846022-f42b-41bf-9164-5dc210f8724d"
+    },
+    {
+      "type": "route",
+      "uuid": "2c51bffa-3f48-49c2-86a8-c05948ca4a10"
+    },
+    {
+      "type": "route",
+      "uuid": "805512d0-5795-4ec7-96dd-8fbc977fe1cf"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
