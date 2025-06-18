@@ -1,6 +1,7 @@
-import 'package:fitness_gym_app/core/features/apps_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../../core/features/apps_colors.dart';
 import '../../../../data/models/workout_exercise.dart';
 
 class WorkoutSummaryList extends StatelessWidget {
@@ -9,13 +10,15 @@ class WorkoutSummaryList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.all(8.0),
           child: Text(
-            '${exercises.length + 1} Exclusive Workouts',
+            '${exercises.length + 1} ${l10n.workouts_exclusive}', //TODO: Localize this
             style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
           ),
         ),

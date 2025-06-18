@@ -5,7 +5,7 @@ import '../../core/features/button_styles.dart';
 
 class PrimaryElevatedButtonCustom extends StatelessWidget {
   final String text;
-  final VoidCallback onPressed;
+  final void Function() onPressed;
   final bool isLoading;
 
   const PrimaryElevatedButtonCustom({super.key, required this.text, required this.onPressed, this.isLoading = false});

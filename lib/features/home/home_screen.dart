@@ -6,10 +6,8 @@ import '../../commons/widgets/app_bar_custom.dart';
 import '../../commons/widgets/tabs_step_custom.dart';
 import '../../core/features/apps_colors.dart';
 import '../../core/features/text_styles.dart';
-import '../../data/models/workout_home.dart';
-import '../../data/repository/repository.dart';
 import '../../navigation/general_navigation.dart';
-import 'widgets/workout_list.dart';
+import '../workouts/view/widgets/workout_list.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -36,7 +34,6 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final Future<WorkoutHome> workoutList = _showListWorkout();
     final userName = "Andres Esquivel";
 
     return Scaffold(
@@ -60,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
           AppSizes.gapH12,
           TabsStepCustom(
             stepTabs: [
-              WorkoutList(workoutList: workoutList),
+              WorkoutList(),
               Center(child: Text(l10n.tab_nutritions, style: TextStyles.bodyTextWhite)),
               Center(child: Text(l10n.tab_discover, style: TextStyles.bodyTextWhite)),
             ],
@@ -98,16 +95,5 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
         },
       ),
     );
-  }
-
-  Future<WorkoutHome> _showListWorkout() async {
-    final Repository _repository = Repository();
-    try {
-      final workoutHome = await _repository.getWorkout();
-      return workoutHome;
-    } catch (error) {
-      print('Error fetching workouts: $error');
-      throw Exception('Failed to fetch workouts');
-    }
   }
 }

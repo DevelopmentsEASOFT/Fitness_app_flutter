@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/features/app_sizes.dart';
-import '../../../core/features/apps_colors.dart';
-import '../../../core/features/button_styles.dart';
-import '../../../core/features/text_styles.dart';
-import '../../../navigation/general_navigation.dart';
+import '../../../../core/features/app_sizes.dart';
+import '../../../../core/features/apps_colors.dart';
+import '../../../../core/features/button_styles.dart';
+import '../../../../core/features/text_styles.dart';
+import '../../../../navigation/general_navigation.dart';
 import 'widgets/login_form.dart';
 
 class LoginScreen extends StatelessWidget {

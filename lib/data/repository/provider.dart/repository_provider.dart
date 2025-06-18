@@ -1,5 +1,5 @@
 import 'package:riverpod/riverpod.dart';
 
-import '../repository.dart';
+import '../commons_repository.dart';
 
-final repositoryProvider = Provider<Repository>((ref) => Repository());
+final repositoryProvider = Provider<CommonsRepository>((ref) => CommonsRepository());

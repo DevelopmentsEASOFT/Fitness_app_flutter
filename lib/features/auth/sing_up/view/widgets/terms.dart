@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/apps_colors.dart';
 
-class terms extends StatelessWidget {
-  const terms({super.key});
+class Terms extends StatelessWidget {
+  const Terms({super.key});
 
   @override
   Widget build(BuildContext context) {

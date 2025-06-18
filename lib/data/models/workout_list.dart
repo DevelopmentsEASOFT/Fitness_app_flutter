@@ -1,12 +1,12 @@
 import 'package:fitness_gym_app/data/models/workout.dart';
 
-class WorkoutHome {
+class WorkoutList {
   List<Workout> workouts;
 
-  WorkoutHome({required this.workouts});
+  WorkoutList({required this.workouts});
 
-  factory WorkoutHome.fromJson(Map<String, dynamic> json) {
-    return WorkoutHome(
+  factory WorkoutList.fromJson(Map<String, dynamic> json) {
+    return WorkoutList(
       workouts: (json['workouts'] as List).map((workout) => Workout.fromJson(workout as Map<String, dynamic>)).toList(),
     );
   }

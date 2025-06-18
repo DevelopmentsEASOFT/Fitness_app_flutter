@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../core/features/app_sizes.dart';
-import '../../../core/features/apps_colors.dart';
-import '../../../navigation/general_navigation.dart';
+import '../../../../core/features/app_sizes.dart';
+import '../../../../core/features/apps_colors.dart';
+import '../../../../navigation/general_navigation.dart';
 import 'widgets/sign_up_form.dart';
 
 class SignUpScreen extends StatelessWidget {

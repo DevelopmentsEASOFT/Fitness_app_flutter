@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../commons/widgets/input_field_custom.dart';
-import '../../../../commons/widgets/primary_elevated_button_custom.dart';
-import '../../../../core/features/app_sizes.dart';
-import '../../../../data/repository/repository.dart';
-import '../../../../navigation/general_navigation.dart';
+import '../../../../../commons/widgets/input_field_custom.dart';
+import '../../../../../commons/widgets/primary_elevated_button_custom.dart';
+import '../../../../../core/features/app_sizes.dart';
+import '../../../../../navigation/general_navigation.dart';
+import '../../view_model/sign_up_view_model.dart';
 import 'terms.dart';
 
-class SignUpForm extends StatefulWidget {
+class SignUpForm extends ConsumerStatefulWidget {
   const SignUpForm({super.key});
 
   @override
-  State<SignUpForm> createState() => _SignUpFormState();
+  ConsumerState<SignUpForm> createState() => _SignUpFormState();
 }
 
-class _SignUpFormState extends State<SignUpForm> {
+class _SignUpFormState extends ConsumerState<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
@@ -31,31 +32,36 @@ class _SignUpFormState extends State<SignUpForm> {
     super.dispose();
   }
 
-  bool _isLoading = false;
-
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) return;
-    setState(() => _isLoading = true);
-    final repo = Repository();
-    final success = await repo.doSignUp(
-      name: _nameController.text,
-      email: _emailController.text,
-      phone: _phoneController.text,
-      password: _passwordController.text,
-    );
+    await ref
+        .read(signUpFormViewModelProvider.notifier)
+        .signUp(
+          name: _nameController.text,
+          email: _emailController.text,
+          phone: _phoneController.text,
+          password: _passwordController.text,
+        );
+    final state = ref.read(signUpFormViewModelProvider);
     if (!mounted) return;
-    setState(() => _isLoading = false);
-    if (success) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Registro exitoso')));
+    if (state.success == true) {
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Registro exitoso'))); //TODO: Localize this message
       GeneralNavigation.goToHome(context);
+    } else if (state.error != null) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error!)));
     } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error al registrarse')));
+      ScaffoldMessenger.of(
+        context,
+      ).showSnackBar(const SnackBar(content: Text('Error al registrarse'))); //TODO: Localize this message
     }
   }
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final state = ref.watch(signUpFormViewModelProvider);
 
     return Form(
       key: _formKey,
@@ -123,12 +129,16 @@ class _SignUpFormState extends State<SignUpForm> {
             },
           ),
           AppSizes.gapH16,
-          terms(),
+          Terms(),
           AppSizes.gapH24,
           SizedBox(
             width: double.infinity,
             height: 54,
-            child: PrimaryElevatedButtonCustom(onPressed: _signUp, text: l10n.signup_button, isLoading: _isLoading),
+            child: PrimaryElevatedButtonCustom(
+              onPressed: state.isLoading ? () {} : () => _signUp(),
+              text: l10n.signup_button,
+              isLoading: state.isLoading,
+            ),
           ),
         ],
       ),

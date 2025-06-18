@@ -25,11 +25,7 @@ class ReviewsWidget extends StatelessWidget {
               Row(
                 children: List.generate(
                   review.rating,
-                  (i) => const Icon(
-                    Icons.star,
-                    color: AppsColors.warningColor,
-                    size: 16,
-                  ), //crear amber color in AppsColors
+                  (i) => const Icon(Icons.star, color: AppsColors.amberColor, size: 16),
                 ),
               ),
               Text(review.comment, style: const TextStyle(color: AppsColors.whiteColor)),

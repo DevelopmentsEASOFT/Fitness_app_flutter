@@ -1,31 +1,39 @@
 import 'package:riverpod/riverpod.dart';
 import '../../../data/models/workout_details.dart';
+import '../../../data/models/workout_list.dart';
 import '../../../data/repository/provider.dart/repository_provider.dart';
-import '../../../data/repository/repository.dart';
+import '../../../data/repository/commons_repository.dart';
 
-// Define los posibles estados
-class WorkoutDetailsState {
+class WorkoutState {
   final bool isLoading;
   final WorkoutDetails? details;
+  final WorkoutList? workouts;
   final bool? isFavorite;
   final String? error;
 
-  WorkoutDetailsState({this.isLoading = false, this.details, this.isFavorite, this.error});
+  WorkoutState({this.isLoading = false, this.details, this.workouts, this.isFavorite, this.error});
 
-  WorkoutDetailsState copyWith({bool? isLoading, WorkoutDetails? details, bool? isFavorite, String? error}) {
-    return WorkoutDetailsState(
+  WorkoutState copyWith({
+    bool? isLoading,
+    WorkoutDetails? details,
+    WorkoutList? workouts,
+    bool? isFavorite,
+    String? error,
+  }) {
+    return WorkoutState(
       isLoading: isLoading ?? this.isLoading,
       details: details ?? this.details,
+      workouts: workouts ?? this.workouts,
       isFavorite: isFavorite ?? this.isFavorite,
       error: error,
     );
   }
 }
 
-class WorkoutDetailsViewModel extends StateNotifier<WorkoutDetailsState> {
-  final Repository repository;
+class WorkoutViewModel extends StateNotifier<WorkoutState> {
+  final CommonsRepository repository;
 
-  WorkoutDetailsViewModel(this.repository) : super(WorkoutDetailsState());
+  WorkoutViewModel(this.repository) : super(WorkoutState());
 
   Future<void> fetchWorkoutDetails(int workoutId) async {
     state = state.copyWith(isLoading: true, error: null);
@@ -49,8 +57,18 @@ class WorkoutDetailsViewModel extends StateNotifier<WorkoutDetailsState> {
       state = state.copyWith(error: 'No se pudo cambiar el estado de favorito');
     }
   }
+
+  Future<void> fetchWorkouts() async {
+    state = state.copyWith(isLoading: true, error: null);
+    try {
+      final workouts = await repository.getWorkouts();
+      state = state.copyWith(isLoading: false, workouts: workouts, error: null);
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
+  }
 }
 
-final workoutDetailsViewModelProvider = StateNotifierProvider<WorkoutDetailsViewModel, WorkoutDetailsState>(
-  (ref) => WorkoutDetailsViewModel(ref.read(repositoryProvider)),
+final workoutViewModelProvider = StateNotifierProvider<WorkoutViewModel, WorkoutState>(
+  (ref) => WorkoutViewModel(ref.read(repositoryProvider)),
 );
