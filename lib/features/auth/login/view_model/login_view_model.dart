@@ -1,5 +1,5 @@
 import 'package:riverpod/riverpod.dart';
-import '../../../../data/repository/providers/auth_repository_provider.dart';
+import '../../../../data/repository/providers/auth_provider.dart';
 import '../../../../data/repository/auth_repository.dart';
 
 class LoginFormState {
@@ -29,7 +29,3 @@ class LoginFormViewModel extends StateNotifier<LoginFormState> {
     }
   }
 }
-
-final loginFormViewModelProvider = StateNotifierProvider<LoginFormViewModel, LoginFormState>(
-  (ref) => LoginFormViewModel(ref.read(authRepositoryProvider)),
-);

@@ -9,6 +9,7 @@ import '../../../core/features/apps_colors.dart';
 import '../../../core/features/text_styles.dart';
 import '../../../data/models/workout.dart';
 import '../../../data/models/workout_details.dart';
+import '../../../data/repository/providers/workouts_provider.dart';
 import '../view_model/workouts_view_model.dart';
 import 'widgets/workout_summary_list.dart';
 

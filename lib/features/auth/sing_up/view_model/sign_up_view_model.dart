@@ -1,5 +1,4 @@
 import 'package:riverpod/riverpod.dart';
-import '../../../../data/repository/providers/auth_repository_provider.dart';
 import '../../../../data/repository/auth_repository.dart';
 
 // Estado para el formulario de registro
@@ -36,8 +35,3 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
     }
   }
 }
-
-// Provider para el ViewModel
-final signUpFormViewModelProvider = StateNotifierProvider<SignUpViewModel, SignUpState>(
-  (ref) => SignUpViewModel(ref.read(authRepositoryProvider)),
-);

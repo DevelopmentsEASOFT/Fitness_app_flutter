@@ -1,7 +1,6 @@
 import 'package:riverpod/riverpod.dart';
 import '../../../data/models/workout_details.dart';
 import '../../../data/models/workout_list.dart';
-import '../../../data/repository/providers/workout_repository_provider.dart';
 import '../../../data/repository/workout_repository.dart';
 
 class WorkoutState {
@@ -68,7 +67,3 @@ class WorkoutViewModel extends StateNotifier<WorkoutState> {
     }
   }
 }
-
-final workoutViewModelProvider = StateNotifierProvider<WorkoutViewModel, WorkoutState>(
-  (ref) => WorkoutViewModel(ref.read(workoutRepositoryProvider)),
-);

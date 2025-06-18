@@ -5,8 +5,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../../commons/widgets/input_field_custom.dart';
 import '../../../../../commons/widgets/primary_elevated_button_custom.dart';
 import '../../../../../core/features/app_sizes.dart';
+import '../../../../../data/repository/providers/auth_provider.dart';
 import '../../../../../navigation/general_navigation.dart';
-import '../../view_model/sign_up_view_model.dart';
 import 'terms.dart';
 
 class SignUpForm extends ConsumerStatefulWidget {
@@ -35,14 +35,14 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
   Future<void> _signUp() async {
     if (!_formKey.currentState!.validate()) return;
     await ref
-        .read(signUpFormViewModelProvider.notifier)
+        .read(signUpViewModelProvider.notifier)
         .signUp(
           name: _nameController.text,
           email: _emailController.text,
           phone: _phoneController.text,
           password: _passwordController.text,
         );
-    final state = ref.read(signUpFormViewModelProvider);
+    final state = ref.read(signUpViewModelProvider);
     if (!mounted) return;
     if (state.success == true) {
       ScaffoldMessenger.of(
@@ -61,7 +61,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final state = ref.watch(signUpFormViewModelProvider);
+    final state = ref.watch(signUpViewModelProvider);
 
     return Form(
       key: _formKey,

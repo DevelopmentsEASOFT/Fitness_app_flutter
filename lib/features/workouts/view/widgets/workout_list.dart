@@ -5,8 +5,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../commons/templates/service_error_view.dart';
 import '../../../../core/features/app_sizes.dart';
 import '../../../../core/features/text_styles.dart';
+import '../../../../data/repository/providers/workouts_provider.dart';
 import '../../../../navigation/general_navigation.dart';
-import '../../view_model/workouts_view_model.dart';
 
 class WorkoutList extends ConsumerStatefulWidget {
   const WorkoutList({super.key});

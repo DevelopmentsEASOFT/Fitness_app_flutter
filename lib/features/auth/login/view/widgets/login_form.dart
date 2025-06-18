@@ -4,6 +4,7 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../commons/widgets/input_field_custom.dart';
 import '../../../../../commons/widgets/primary_elevated_button_custom.dart';
+import '../../../../../data/repository/providers/auth_provider.dart';
 import '../../../../../navigation/general_navigation.dart';
 import '../../view_model/login_view_model.dart';
 
@@ -29,9 +30,9 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   Future<void> _login() async {
     if (!_formKey.currentState!.validate()) return;
     await ref
-        .read(loginFormViewModelProvider.notifier)
+        .read(loginViewModelProvider.notifier)
         .login(username: _usernameController.text, password: _passwordController.text);
-    final state = ref.read(loginFormViewModelProvider);
+    final state = ref.read(loginViewModelProvider);
     if (!mounted) return;
     if (state.success == true) {
       ScaffoldMessenger.of(
@@ -50,7 +51,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final state = ref.watch(loginFormViewModelProvider);
+    final state = ref.watch(loginViewModelProvider);
 
     return Form(
       key: _formKey,
