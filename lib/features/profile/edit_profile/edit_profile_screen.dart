@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import '../../../commons/widgets/app_bar_custom.dart';
 import '../../../core/features/app_sizes.dart';
 import '../../../core/features/apps_colors.dart';
 import '../../../core/features/button_styles.dart';
@@ -20,12 +21,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     final l10n = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text(l10n.profile_edit),
-        backgroundColor: AppsColors.blackColor,
-        iconTheme: const IconThemeData(color: AppsColors.whiteColor),
-        foregroundColor: AppsColors.whiteColor,
-      ),
+      appBar: AppBarCustom(title: Text(l10n.profile_edit)),
       backgroundColor: AppsColors.blackColor,
       body: Padding(
         padding: const EdgeInsets.all(SpacingTokens.medium),

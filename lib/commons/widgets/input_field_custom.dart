@@ -1,3 +1,4 @@
+import 'package:fitness_gym_app/core/features/apps_colors.dart';
 import 'package:flutter/material.dart';
 
 class InputFieldCustom extends StatelessWidget {
@@ -5,6 +6,8 @@ class InputFieldCustom extends StatelessWidget {
   final String hint;
   final bool obscureText;
   final IconData? suffixIcon;
+  final TextEditingController? controller;
+  final FormFieldValidator<String>? validator;
 
   const InputFieldCustom({
     super.key,
@@ -12,20 +15,25 @@ class InputFieldCustom extends StatelessWidget {
     required this.hint,
     this.obscureText = false,
     this.suffixIcon,
+    this.controller,
+    this.validator,
   });
 
   @override
   Widget build(BuildContext context) {
-    return TextField(
+    return TextFormField(
+      controller: controller,
       obscureText: obscureText,
-      style: const TextStyle(color: Colors.white),
+      validator: validator,
+      style: const TextStyle(color: AppsColors.whiteColor),
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color(0xFF2C2C2C),
-        prefixIcon: Icon(icon, color: Colors.white54),
+        fillColor: AppsColors.fillColor,
+        prefixIcon: Icon(icon, color: AppsColors.grayColor),
         suffixIcon: suffixIcon != null ? Icon(suffixIcon, color: Colors.white54) : null,
         hintText: hint,
-        hintStyle: const TextStyle(color: Colors.white54),
+        hintStyle: const TextStyle(color: AppsColors.grayColor),
+        errorStyle: const TextStyle(color: AppsColors.errorColor, fontWeight: FontWeight.w600, fontSize: 16),
         border: OutlineInputBorder(borderRadius: BorderRadius.circular(16), borderSide: BorderSide.none),
         contentPadding: EdgeInsets.symmetric(
           vertical: MediaQuery.of(context).size.height * 0.02,

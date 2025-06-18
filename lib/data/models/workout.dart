@@ -1,5 +1,7 @@
+import 'package:flutter/material.dart';
+
 class Workout {
-  final String id;
+  final int id;
   final String title;
   final String trainer;
   final String imageUrl;
@@ -19,7 +21,7 @@ class Workout {
 
   factory Workout.fromJson(Map<String, dynamic> json) {
     return Workout(
-      id: json['id'] as String,
+      id: json['id'] as int,
       title: json['title'] as String,
       trainer: json['trainer'] as String,
       imageUrl: json['imageUrl'] as String,
@@ -39,5 +41,9 @@ class Workout {
       'typeColor': typeColor,
       'messages': messages,
     };
+  }
+
+  Color get typeColorValue {
+    return Color(int.parse(typeColor.replaceFirst('#', '0xff')));
   }
 }
