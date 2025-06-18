@@ -3,6 +3,8 @@
     "title_welcome": "Track your Activity",
     "txt_welcome": "Welcome to the Activity Tracker app! This app helps you monitor your daily activities and stay healthy.",
     "btn_start": "Get Started",
+    "btn_retry": "Retry",
+    "generic_error": "An error occurred. Please try again later.",
     "signup_name_hint": "Your name",
     "signup_email_hint": "Email address",
     "signup_phone_hint": "Phone number",

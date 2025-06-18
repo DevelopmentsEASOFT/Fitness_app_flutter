@@ -1,5 +1,7 @@
-import 'package:fitness_gym_app/core/features/apps_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
+
+import '../../core/features/apps_colors.dart';
 
 class ServiceErrorView extends StatelessWidget {
   final String? message;
@@ -9,6 +11,7 @@ class ServiceErrorView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Center(
       child: Padding(
         padding: const EdgeInsets.all(32.0),
@@ -18,7 +21,7 @@ class ServiceErrorView extends StatelessWidget {
             const Icon(Icons.error_outline, color: AppsColors.errorColor, size: 64),
             const SizedBox(height: 16),
             Text(
-              message ?? 'An unexpected error occurred.\nPlease try again.', //Todo: Localize this message
+              message ?? l10n.generic_error,
               textAlign: TextAlign.center,
               style: const TextStyle(color: AppsColors.secondaryColor, fontSize: 18),
             ),
@@ -27,7 +30,7 @@ class ServiceErrorView extends StatelessWidget {
               ElevatedButton.icon(
                 onPressed: onRetry,
                 icon: const Icon(Icons.refresh),
-                label: const Text('Retry'),
+                label: Text(l10n.btn_retry),
                 style: ElevatedButton.styleFrom(backgroundColor: AppsColors.errorColor, foregroundColor: Colors.white),
               ),
           ],

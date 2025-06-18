@@ -3,6 +3,8 @@
     "title_welcome": "Registra tu Actividad",
     "txt_welcome": "¡Bienvenido a la aplicación de Seguimiento de Actividad! Esta app te ayuda a monitorear tus actividades diarias y mantenerte saludable.",
     "btn_start": "Comenzar",
+    "btn_retry": "Reintentar",
+    "generic_error": "Ha ocurrido un error. Por favor, inténtalo de nuevo más tarde.",
     "signup_name_hint": "Tu nombre",
     "signup_email_hint": "Correo electrónico",
     "signup_phone_hint": "Número de teléfono",
