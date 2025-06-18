@@ -1,8 +1,8 @@
 import 'package:riverpod/riverpod.dart';
 import '../../../data/models/workout_details.dart';
 import '../../../data/models/workout_list.dart';
-import '../../../data/repository/provider.dart/repository_provider.dart';
-import '../../../data/repository/commons_repository.dart';
+import '../../../data/repository/providers/workout_repository_provider.dart';
+import '../../../data/repository/workout_repository.dart';
 
 class WorkoutState {
   final bool isLoading;
@@ -31,7 +31,7 @@ class WorkoutState {
 }
 
 class WorkoutViewModel extends StateNotifier<WorkoutState> {
-  final CommonsRepository repository;
+  final WorkoutRepository repository;
 
   WorkoutViewModel(this.repository) : super(WorkoutState());
 
@@ -70,5 +70,5 @@ class WorkoutViewModel extends StateNotifier<WorkoutState> {
 }
 
 final workoutViewModelProvider = StateNotifierProvider<WorkoutViewModel, WorkoutState>(
-  (ref) => WorkoutViewModel(ref.read(repositoryProvider)),
+  (ref) => WorkoutViewModel(ref.read(workoutRepositoryProvider)),
 );

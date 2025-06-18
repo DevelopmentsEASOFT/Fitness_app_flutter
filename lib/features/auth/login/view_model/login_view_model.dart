@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
-import '../../../../data/repository/provider.dart/repository_provider.dart';
-import '../../../../data/repository/commons_repository.dart';
+import '../../../../data/repository/providers/auth_repository_provider.dart';
+import '../../../../data/repository/auth_repository.dart';
 
 class LoginFormState {
   final bool isLoading;
@@ -15,7 +15,7 @@ class LoginFormState {
 }
 
 class LoginFormViewModel extends StateNotifier<LoginFormState> {
-  final CommonsRepository repository;
+  final AuthRepository repository;
 
   LoginFormViewModel(this.repository) : super(LoginFormState());
 
@@ -31,5 +31,5 @@ class LoginFormViewModel extends StateNotifier<LoginFormState> {
 }
 
 final loginFormViewModelProvider = StateNotifierProvider<LoginFormViewModel, LoginFormState>(
-  (ref) => LoginFormViewModel(ref.read(repositoryProvider)),
+  (ref) => LoginFormViewModel(ref.read(authRepositoryProvider)),
 );

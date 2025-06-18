@@ -1,6 +1,6 @@
 import 'package:riverpod/riverpod.dart';
-import '../../../../data/repository/provider.dart/repository_provider.dart';
-import '../../../../data/repository/commons_repository.dart';
+import '../../../../data/repository/providers/auth_repository_provider.dart';
+import '../../../../data/repository/auth_repository.dart';
 
 // Estado para el formulario de registro
 class SignUpState {
@@ -17,7 +17,7 @@ class SignUpState {
 
 // ViewModel para el formulario de registro
 class SignUpViewModel extends StateNotifier<SignUpState> {
-  final CommonsRepository repository;
+  final AuthRepository repository;
 
   SignUpViewModel(this.repository) : super(SignUpState());
 
@@ -39,5 +39,5 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
 
 // Provider para el ViewModel
 final signUpFormViewModelProvider = StateNotifierProvider<SignUpViewModel, SignUpState>(
-  (ref) => SignUpViewModel(ref.read(repositoryProvider)),
+  (ref) => SignUpViewModel(ref.read(authRepositoryProvider)),
 );
