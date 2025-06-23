@@ -19,6 +19,7 @@ dependencies:
   hooks_riverpod: ^2.6.1
   flutter_hooks: ^0.21.2
   flutter_riverpod: ^2.6.1
+  shimmer: ^3.0.0
 
 dev_dependencies:
   flutter_test:

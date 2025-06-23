@@ -5,6 +5,7 @@
     "btn_start": "Get Started",
     "btn_retry": "Retry",
     "generic_error": "An error occurred. Please try again later.",
+    "txt_under_construction":"This feature is under construction.\nPlease check back soon!",
     "signup_name_hint": "Your name",
     "signup_email_hint": "Email address",
     "signup_phone_hint": "Phone number",
@@ -24,6 +25,8 @@
     "signup_email_invalid": "Please enter a valid email address",
     "signup_phone_invalid": "Please enter a valid phone number",
     "signup_password_min_length": "Password must be at least 6 characters long",
+    "signup_greeting": "Hello, {userName}! Thank you for joining our fitness community.",
+    "signup_error": "Sign up failed. Please check your details and try again.",
 
     "login_title": "Glad to see you again!",
     "login_username_hint": "Username",
@@ -36,6 +39,7 @@
     "login_username_required": "Username is required",
     "login_password_required": "Password is required",
     "login_error": "Login failed. Please check your credentials and try again.",
+    "login_greeting": "Welcome back, {userName}!",
 
     "type_login_title": "Track your Activity",
     "type_login_subtitle": "Track your Fitness and workout",
@@ -45,8 +49,9 @@
     "type_login_signin": "Sign In",
 
     "home_greeting": "Good Morning!\n{userName}",
-    "tab_my_workouts": "My Workouts",
-    "tab_nutritions": "Nutritions",
+    "home_greetingnight": "Good Evening!\n{userName}",
+    "tab_my_workouts": "Workouts",
+    "tab_estadistics": "Estadistics",
     "tab_discover": "Discover",
     "tab_profile": "Profile",
     "workouts_error": "Error loading workouts",
@@ -54,9 +59,10 @@
     "workouts_type_premium": "Premium",
     "workouts_type_free": "Free",
     "workouts_trainer": "Trainer: {trainerName}",
-     "workouts_exclusive": "Exclusive Workouts",
+    "workouts_exclusive": "Exclusive Workouts",
+    "workouts_label": "Professional Trainer",
 
-    "profile_edit": "Edit Profile",
+    "profile_edit": "Edit personal information",
     "profile_settings": "General Settings",
     "profile_level_beginner": "Beginner",
     "profile_save_changes": "Save Changes",
@@ -65,5 +71,20 @@
     "profile_password_hint": "Password",
     "profile_phone_hint": "Phone number",
 
-    "member_ship": "Membership"
+    "member_ship": "Membership",
+    "member_ship_active": "Active Membership",
+    "member_ship_expired": "Membership Expired",
+    "member_ship_renew": "Renew Membership",
+    "member_ship_renew_button": "Renew Now",
+    "member_ship_details": "Membership Details",
+    "next_renewal_date": "Next Renewal Date",
+    "member_ship_status": "Membership Status",
+    "member_ship_amount": "Membership Amount",
+    "member_ship_history": "Membership History",
+    "member_ship_next_renewal": "Next Renewal",
+     "member_ship_recent": "Recent Invoices",
+     "member_ship_invoice": "Invoice",
+
+    "reviews": "Reviews",
+    "reviews_empty": "No reviews yet"
 }

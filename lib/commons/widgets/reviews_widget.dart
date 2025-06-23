@@ -1,7 +1,9 @@
-import 'package:fitness_gym_app/core/features/apps_colors.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 
-import '../../data/models/workout_review.dart';
+import '../../core/features/apps_colors.dart';
+import '../../core/features/text_styles.dart';
+import '../../features/workouts/data/models/workout_review.dart';
 
 class ReviewsWidget extends StatelessWidget {
   final List<WorkoutReview>? reviews;
@@ -9,8 +11,9 @@ class ReviewsWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     if (reviews == null || reviews!.isEmpty) {
-      return const Center(child: Text('No reviews available', style: TextStyle(color: AppsColors.secondaryColor)));
+      return Center(child: Text(l10n.reviews_empty, style: TextStyles.heading2White));
     }
     return ListView.builder(
       itemCount: reviews!.length,
@@ -28,8 +31,8 @@ class ReviewsWidget extends StatelessWidget {
                   (i) => const Icon(Icons.star, color: AppsColors.amberColor, size: 16),
                 ),
               ),
-              Text(review.comment, style: const TextStyle(color: AppsColors.whiteColor)),
-              Text(review.date, style: const TextStyle(color: AppsColors.grayColor, fontSize: 12)),
+              Text(review.comment, style: TextStyles.bodyTextWhite),
+              Text(review.date, style: TextStyles.captionWhite),
             ],
           ),
         );

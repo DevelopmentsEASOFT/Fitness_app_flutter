@@ -30,7 +30,7 @@ class InputFieldCustom extends StatelessWidget {
         filled: true,
         fillColor: AppsColors.fillColor,
         prefixIcon: Icon(icon, color: AppsColors.grayColor),
-        suffixIcon: suffixIcon != null ? Icon(suffixIcon, color: Colors.white54) : null,
+        suffixIcon: suffixIcon != null ? Icon(suffixIcon, color: AppsColors.grayColor) : null,
         hintText: hint,
         hintStyle: const TextStyle(color: AppsColors.grayColor),
         errorStyle: const TextStyle(color: AppsColors.errorColor, fontWeight: FontWeight.w600, fontSize: 16),
