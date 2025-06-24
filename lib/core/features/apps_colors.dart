@@ -7,6 +7,7 @@ class AppsColors {
   static const Color blackColor = Color(0xFF1D1B1B);
   static const Color errorColor = Color(0xC594041E);
   static const Color errorlightColor = Color(0xC5C82D4A);
+  static const Color runningColor = Color(0xD5DE5C5C);
   static const Color successColor = Color(0xC23C9E40);
   static const Color warningColor = Color(0xFFC8C627);
   static const Color grayColor = Color(0xFF716D6D);
@@ -14,5 +15,6 @@ class AppsColors {
   static const Color amberColor = Color(0xFFFFC107);
   static const Color blueColor = Color(0xFF1A72BA);
   static const Color transparentColor = Color(0x00000000);
+  static const Color semiTransparentColor = Color.fromARGB(53, 155, 150, 150);
   static const List<Color> gradientColor = [transparentColor, Color(0xDD000000), Color(0xFF000000)];
 }

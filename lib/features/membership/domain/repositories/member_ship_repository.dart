@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import '../../data/models/member_ship_history_list.dart';
 import '../../data/models/user_member_ship.dart';
 
-class MemberShipRepository {
+class MembershipRepository {
   final _dio = Dio(
     BaseOptions(
       baseUrl: 'http://localhost:3002',
@@ -12,19 +12,19 @@ class MemberShipRepository {
       headers: {'Content-Type': 'application/json'},
     ),
   );
-  Future<UserMemberShip> getMembershipInfo() async {
+  Future<UserMembership> getMembershipInfo() async {
     try {
       final response = await _dio.get('/membership/info');
-      return UserMemberShip.fromJson(response.data);
+      return UserMembership.fromJson(response.data);
     } catch (e) {
       throw Exception('Error fetching membership info: $e');
     }
   }
 
-  Future<MemberShipHistoryList> getMembershipHistory() async {
+  Future<MembershipHistoryList> getMembershipHistory() async {
     try {
       final response = await _dio.get('/membership/history');
-      return MemberShipHistoryList.fromJson(response.data);
+      return MembershipHistoryList.fromJson(response.data);
     } catch (e) {
       throw Exception('Error fetching membership info: $e');
     }

@@ -1,6 +1,24 @@
 import 'package:riverpod/riverpod.dart';
 import '../../../domain/repositories/auth_repository.dart';
 
+class LoginFormViewModel extends StateNotifier<LoginFormState> {
+  final AuthRepository repository;
+
+  LoginFormViewModel(this.repository) : super(LoginFormState());
+
+  Future<bool> islogin({required String username, required String password}) async {
+    state = state.copyWith(isLoading: true);
+    try {
+      final success = await repository.doLogin(username, password);
+      state = state.copyWith(isLoading: false, success: success);
+      return success;
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+      return false;
+    }
+  }
+}
+
 class LoginFormState {
   final bool isLoading;
   final bool? success;
@@ -10,21 +28,5 @@ class LoginFormState {
 
   LoginFormState copyWith({bool? isLoading, bool? success, String? error}) {
     return LoginFormState(isLoading: isLoading ?? this.isLoading, success: success ?? this.success, error: error);
-  }
-}
-
-class LoginFormViewModel extends StateNotifier<LoginFormState> {
-  final AuthRepository repository;
-
-  LoginFormViewModel(this.repository) : super(LoginFormState());
-
-  Future<void> login({required String username, required String password}) async {
-    state = state.copyWith(isLoading: true, error: null, success: null);
-    try {
-      final result = await repository.doLogin(username, password);
-      state = state.copyWith(isLoading: false, success: result, error: null);
-    } catch (e) {
-      state = state.copyWith(isLoading: false, success: false, error: e.toString());
-    }
   }
 }

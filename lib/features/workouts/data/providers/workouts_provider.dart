@@ -5,6 +5,6 @@ import '../../domain/repositories/workout_repository.dart';
 
 final workoutRepositoryProvider = Provider<WorkoutRepository>((ref) => WorkoutRepository());
 
-final workoutViewModelProvider = StateNotifierProvider<WorkoutViewModel, WorkoutState>(
-  (ref) => WorkoutViewModel(ref.read(workoutRepositoryProvider)),
+final workoutViewModelProvider = StateNotifierProvider<WorkoutsViewModel, WorkoutState>(
+  (ref) => WorkoutsViewModel(ref.read(workoutRepositoryProvider)),
 );

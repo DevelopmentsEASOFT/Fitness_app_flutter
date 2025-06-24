@@ -1,11 +1,11 @@
-class UserMemberShip {
+class UserMembership {
   final String id;
   final String membershipType;
   final String status;
   final DateTime nextRenewalDate;
   final double amount;
 
-  UserMemberShip({
+  UserMembership({
     required this.id,
     required this.membershipType,
     required this.status,
@@ -13,8 +13,8 @@ class UserMemberShip {
     required this.amount,
   });
 
-  factory UserMemberShip.fromJson(Map<String, dynamic> json) {
-    return UserMemberShip(
+  factory UserMembership.fromJson(Map<String, dynamic> json) {
+    return UserMembership(
       id: json['id'],
       membershipType: json['membershipType'],
       status: json['status'],

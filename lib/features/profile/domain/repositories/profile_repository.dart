@@ -10,7 +10,7 @@ class ProfileRepository {
     ),
   );
 
-  Future<bool> doUpdateProfile({
+  Future<bool> updateProfile({
     required String name,
     required String email,
     required String phone,

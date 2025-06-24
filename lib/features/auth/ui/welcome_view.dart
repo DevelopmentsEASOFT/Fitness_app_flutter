@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:go_router/go_router.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
+import '../../../config/router/app_routes.dart';
 import '../../../core/features/app_sizes.dart';
 import '../../../core/features/apps_colors.dart';
 import '../../../core/features/button_styles.dart';
 import '../../../core/features/text_styles.dart';
-import '../../../navigation/general_navigation.dart';
 
-class WelcomeView extends StatelessWidget {
+class WelcomeView extends ConsumerWidget {
   const WelcomeView({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
       body: Stack(
@@ -37,9 +39,9 @@ class WelcomeView extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(l10n.title_welcome, style: TextStyles.heading1White),
+                  Text(localizations.title_welcome, style: TextStyles.heading1White),
                   AppSizes.gapH5,
-                  Text(l10n.txt_welcome, style: TextStyles.bodyTextWhite, textAlign: TextAlign.center),
+                  Text(localizations.txt_welcome, style: TextStyles.bodyTextWhite, textAlign: TextAlign.center),
                   AppSizes.gapH20,
                   Row(
                     children: [
@@ -50,9 +52,9 @@ class WelcomeView extends StatelessWidget {
                             horizontal: MediaQuery.of(context).size.height * 0.01,
                           ),
                           child: ElevatedButton(
-                            onPressed: () => GeneralNavigation.pushTypelogin(context),
+                            onPressed: () => context.pushNamed(AppRoutes.authMethodSelection),
                             style: ButtonStyles.primaryButton,
-                            child: Text(l10n.btn_start, style: TextStyles.buttonText),
+                            child: Text(localizations.btn_start, style: TextStyles.buttonText),
                           ),
                         ),
                       ),

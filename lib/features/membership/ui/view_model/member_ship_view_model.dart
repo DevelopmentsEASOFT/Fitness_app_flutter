@@ -3,33 +3,10 @@ import '../../data/models/member_ship_history_list.dart';
 import '../../domain/repositories/member_ship_repository.dart';
 import '../../data/models/user_member_ship.dart';
 
-class MemberShipState {
-  final bool isLoading;
-  final UserMemberShip? membership;
-  final String? error;
-  final MemberShipHistoryList? memberShipHistory;
+class MembershipViewModel extends StateNotifier<MembershipState> {
+  final MembershipRepository repository;
 
-  MemberShipState({this.isLoading = false, this.membership, this.error, this.memberShipHistory});
-
-  MemberShipState copyWith({
-    bool? isLoading,
-    UserMemberShip? membership,
-    String? error,
-    MemberShipHistoryList? memberShipHistory,
-  }) {
-    return MemberShipState(
-      isLoading: isLoading ?? this.isLoading,
-      membership: membership ?? this.membership,
-      error: error,
-      memberShipHistory: memberShipHistory ?? this.memberShipHistory,
-    );
-  }
-}
-
-class MemberShipViewModel extends StateNotifier<MemberShipState> {
-  final MemberShipRepository repository;
-
-  MemberShipViewModel(this.repository) : super(MemberShipState());
+  MembershipViewModel(this.repository) : super(MembershipState());
 
   Future<void> fetchMembershipInfo() async {
     state = state.copyWith(isLoading: true, error: null);
@@ -49,5 +26,28 @@ class MemberShipViewModel extends StateNotifier<MemberShipState> {
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
+  }
+}
+
+class MembershipState {
+  final bool isLoading;
+  final UserMembership? membership;
+  final String? error;
+  final MembershipHistoryList? memberShipHistory;
+
+  MembershipState({this.isLoading = false, this.membership, this.error, this.memberShipHistory});
+
+  MembershipState copyWith({
+    bool? isLoading,
+    UserMembership? membership,
+    String? error,
+    MembershipHistoryList? memberShipHistory,
+  }) {
+    return MembershipState(
+      isLoading: isLoading ?? this.isLoading,
+      membership: membership ?? this.membership,
+      error: error,
+      memberShipHistory: memberShipHistory ?? this.memberShipHistory,
+    );
   }
 }

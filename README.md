@@ -26,14 +26,14 @@ lib/
 │   │   │   └── usecases/
 │   │   └── ui/
 │   │       └── login/
-│   │           ├── view/
-│   │           │   └── widgets/
+│   │           ├── screens/
+│   │           ├── widgets/
 │   │           └── viewmodel/  
 │   │
 │   ├── profile/                 # Feature: Perfil de usuario (ejemplo)
 │   │   ├── data/
 │   │   ├── domain/
-│   │   ├── view/
+│   │   ├── screens/
 │   │   └── viewmodel/
 │   │
 │   └── ...                      # Otros features
@@ -60,8 +60,8 @@ flowchart TD
     G --> J["WorkoutDetailsView"]
     J --> K["WorkoutSessionView"]
     K --> L["WorkoutSummaryView"]
-    H["Membership"] --> M["MemberShipView"]
-    M --> N["MemberShipHistoryView"]
+    H["Membership"] --> M["MembershipView"]
+    M --> N["MembershipHistoryView"]
     I --> O["UserProfileView"] & H
     O --> P["EditProfileView"]
 ```

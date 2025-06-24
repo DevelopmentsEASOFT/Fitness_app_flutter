@@ -3,36 +3,10 @@ import '../../data/models/workout_details.dart';
 import '../../data/models/workout_list.dart';
 import '../../domain/repositories/workout_repository.dart';
 
-class WorkoutState {
-  final bool isLoading;
-  final WorkoutDetails? details;
-  final WorkoutList? workouts;
-  final bool? isFavorite;
-  final String? error;
-
-  WorkoutState({this.isLoading = false, this.details, this.workouts, this.isFavorite, this.error});
-
-  WorkoutState copyWith({
-    bool? isLoading,
-    WorkoutDetails? details,
-    WorkoutList? workouts,
-    bool? isFavorite,
-    String? error,
-  }) {
-    return WorkoutState(
-      isLoading: isLoading ?? this.isLoading,
-      details: details ?? this.details,
-      workouts: workouts ?? this.workouts,
-      isFavorite: isFavorite ?? this.isFavorite,
-      error: error,
-    );
-  }
-}
-
-class WorkoutViewModel extends StateNotifier<WorkoutState> {
+class WorkoutsViewModel extends StateNotifier<WorkoutState> {
   final WorkoutRepository repository;
 
-  WorkoutViewModel(this.repository) : super(WorkoutState());
+  WorkoutsViewModel(this.repository) : super(WorkoutState());
 
   Future<void> fetchWorkoutDetails(int workoutId) async {
     state = state.copyWith(isLoading: true, error: null);
@@ -65,5 +39,31 @@ class WorkoutViewModel extends StateNotifier<WorkoutState> {
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
+  }
+}
+
+class WorkoutState {
+  final bool isLoading;
+  final WorkoutDetails? details;
+  final WorkoutList? workouts;
+  final bool? isFavorite;
+  final String? error;
+
+  WorkoutState({this.isLoading = false, this.details, this.workouts, this.isFavorite, this.error});
+
+  WorkoutState copyWith({
+    bool? isLoading,
+    WorkoutDetails? details,
+    WorkoutList? workouts,
+    bool? isFavorite,
+    String? error,
+  }) {
+    return WorkoutState(
+      isLoading: isLoading ?? this.isLoading,
+      details: details ?? this.details,
+      workouts: workouts ?? this.workouts,
+      isFavorite: isFavorite ?? this.isFavorite,
+      error: error,
+    );
   }
 }
