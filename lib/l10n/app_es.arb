@@ -24,6 +24,8 @@
     "signup_email_invalid": "Por favor ingresa un correo electrónico válido",
     "signup_phone_invalid": "Por favor ingresa un número de teléfono válido",
     "signup_password_min_length": "La contraseña debe tener al menos 6 caracteres",
+    "signup_greeting": "¡Hola, {userName}! Gracias por unirte a nuestra comunidad de fitness.",
+    "signup_error": "Error al registrarse. Por favor verifica tus datos e inténtalo de nuevo.",
 
     "login_title": "¡Nos alegra verte de nuevo!",
     "login_username_hint": "Usuario",
@@ -36,6 +38,7 @@
     "login_username_required": "El usuario es obligatorio",
     "login_password_required": "La contraseña es obligatoria",
     "login_error": "Error al iniciar sesión. Por favor verifica tus credenciales e inténtalo de nuevo.",
+    "login_greeting": "¡Bienvenido de nuevo, {userName}!",
 
     "type_login_title": "Registra tu Actividad",
     "type_login_subtitle": "Registra tu estado físico y entrenamiento",
@@ -45,8 +48,9 @@
     "type_login_signin": "Iniciar sesión",
 
     "home_greeting": "¡Buenos días!\n{userName}",
-    "tab_my_workouts": "Mis Entrenamientos",
-    "tab_nutritions": "Nutrición",
+    "home_greetingnight": "¡Buenas noches!\n{userName}",
+    "tab_my_workouts": "Entrenamientos",
+    "tab_estadistics": "Estadisticas",
     "tab_discover": "Descubrir",
     "tab_profile": "Perfil",
     "workouts_error": "Error al cargar los entrenamientos",
@@ -55,8 +59,9 @@
     "workouts_type_free": "Gratis",
     "workouts_trainer": "Entrenador: {trainerName}",
     "workouts_exclusive": "Entrenamientos Exclusivos",
+    "workouts_label": "Entrenador Profesional",
 
-    "profile_edit": "Editar Perfil",
+    "profile_edit": "Editar información personal",
     "profile_settings": "Configuración General",
     "profile_level_beginner": "Principiante",
     "profile_save_changes": "Guardar Cambios",
@@ -65,5 +70,21 @@
     "profile_password_hint": "Contraseña",
     "profile_phone_hint": "Número de teléfono",
 
-    "member_ship": "Membresía"
+    "member_ship": "Membresía",
+    "member_ship_active": "Membresía Activa",
+    "member_ship_expired": "Membresía Expirada",
+    "member_ship_renew": "Renovar Membresía",
+    "member_ship_renew_button": "Renovar Ahora",
+    "member_ship_details": "Detalles de la Membresía",
+    "next_renewal_date": "Fecha de Renovación",
+    "member_ship_status": "Estado de la Membresía",
+    "member_ship_amount": "Monto de la Membresía",
+    "member_ship_history": "Historial de Membresía",
+    "member_ship_next_renewal": "Próxima Renovación",
+    "member_ship_recent": "Facturas Reciente",
+    "member_ship_invoice": "Factura",
+
+
+    "reviews": "Reseñas",
+    "reviews_empty": "No hay reseñas disponibles"
 }

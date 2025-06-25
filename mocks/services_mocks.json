@@ -156,8 +156,8 @@
       "responses": [
         {
           "uuid": "9805ab7f-6118-4ccf-898b-4b81b389e60d",
-          "body": "{\n  \"id\": 1,\n  \"overview\": {\n    \"title\": \"Cardio workout sets\",\n    \"trainer\": {\n      \"name\": \"Scott Parker\",\n      \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"role\": \"Professional trainer\"\n    },\n    \"exercisesCount\": 12,\n    \"isFavorite\": false,\n    \"duration\": \"20 min\",\n    \"level\": \"Intermediate\",\n    \"description\": \"In this workout program, I’ll help you to increase your cardio healthiness with a set of exclusive exercises. Suitable for all fitness levels.\",\n    \"isPremium\": true,\n    \"rating\": 4.8,\n    \"reviewsCount\": 1200,\n    \"consultationAvailable\": true,\n    \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n  },\n  \"exercises\": [\n    {\n      \"id\": 101,\n      \"name\": \"Jump rope\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\"\n    },\n    {\n      \"id\": 102,\n      \"name\": \"Jumping jacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\"\n    },\n    {\n      \"id\": 103,\n      \"name\": \"Jog in place\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"02:00\"\n    },\n    {\n      \"id\": 104,\n      \"name\": \"Split snatches\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 105,\n      \"name\": \"Squat thrust split jumps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 106,\n      \"name\": \"Plyometric woodchopper\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 107,\n      \"name\": \"Plank jack\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"01:00\"\n    },\n    {\n      \"id\": 108,\n      \"name\": \"Skaters\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 109,\n      \"name\": \"Rollbacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 110,\n      \"name\": \"Burpee 180 jump\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"15x\"\n    },\n    {\n      \"id\": 111,\n      \"name\": \"Lateral toe taps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"10x\"\n    }\n  ],\n  \"reviews\": [\n    {\n      \"user\": {\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 5,\n      \"comment\": \"Great workout! Really improved my cardio.\",\n      \"date\": \"2024-06-15\"\n    },\n    {\n      \"user\": {\n        \"name\": \"You\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 4,\n      \"comment\": \"Challenging but worth it!\",\n      \"date\": \"2024-06-16\"\n    }\n  ]\n}",
-          "latency": 0,
+          "body": "{\n  \"id\": 1,\n  \"overview\": {\n    \"title\": \"Cardio workout sets\",\n    \"trainer\": {\n      \"name\": \"Scott Parker\",\n      \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"role\": \"Professional trainer\"\n    },\n    \"exercisesCount\": 12,\n    \"isFavorite\": false,\n    \"duration\": \"20 min\",\n    \"session\": 3,\n    \"level\": \"Intermediate\",\n    \"description\": \"In this workout program, I’ll help you to increase your cardio healthiness with a set of exclusive exercises. Suitable for all fitness levels.\",\n    \"isPremium\": true,\n    \"rating\": 4.8,\n    \"reviewsCount\": 1200,\n    \"consultationAvailable\": true,\n    \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n  },\n  \"exercises\": [\n    {\n      \"id\": 101,\n      \"name\": \"Jump rope\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 102,\n      \"name\": \"Jumping jacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"20x\", \n      \"duration\": \"01:00\"\n    },\n    {\n      \"id\": 103,\n      \"name\": \"Jog in place\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"02:00\", \n      \"duration\": \"03:00\"\n    },\n    {\n      \"id\": 104,\n      \"name\": \"Split snatches\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 105,\n      \"name\": \"Squat thrust split jumps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n    },\n    {\n      \"id\": 106,\n      \"name\": \"Plyometric woodchopper\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 107,\n      \"name\": \"Plank jack\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"01:00\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 108,\n      \"name\": \"Skaters\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 109,\n      \"name\": \"Rollbacks\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 110,\n      \"name\": \"Burpee 180 jump\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"15x\", \n      \"duration\": \"02:00\"\n    },\n    {\n      \"id\": 111,\n      \"name\": \"Lateral toe taps\",\n      \"imageUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\",\n      \"detail\": \"10x\", \n      \"duration\": \"02:00\"\n    }\n  ],\n  \"reviews\": [\n    {\n      \"user\": {\n        \"name\": \"Jane Doe\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 5,\n      \"comment\": \"Great workout! Really improved my cardio.\",\n      \"date\": \"2024-06-15\"\n    },\n    {\n      \"user\": {\n        \"name\": \"You\",\n        \"avatarUrl\": \"https://images.pexels.com/photos/1552242/pexels-photo-1552242.jpeg\"\n      },\n      \"rating\": 4,\n      \"comment\": \"Challenging but worth it!\",\n      \"date\": \"2024-06-16\"\n    }\n  ]\n}",
+          "latency": 1500,
           "statusCode": 200,
           "label": "",
           "headers": [],
@@ -208,6 +208,68 @@
       "responseMode": null,
       "streamingMode": null,
       "streamingInterval": 0
+    },
+    {
+      "uuid": "180de85d-1d46-474a-940f-07a697bd6964",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "membership/info",
+      "responses": [
+        {
+          "uuid": "9ff43928-237a-47eb-b0ec-7ef5f53b3db2",
+          "body": "{\n  \"success\": true,\n  \"id\": \"1\",\n  \"membershipType\": \"Plan Premium\",\n  \"status\": \"Activa\",\n  \"nextRenewalDate\": \"2025-07-15\",\n  \"amount\": 19.99\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7dc04397-5c9b-4e36-829d-825c416a0102",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "membership/history",
+      "responses": [
+        {
+          "uuid": "4aaf9d67-3a95-40bd-ad9b-bfb381fb5dff",
+          "body": "{\n  \"shipList\": [\n    {\n      \"date\": \"2025-06-15\",\n      \"invoice\": \"12345\",\n      \"amount\": \"$50.00\"\n    },\n    {\n      \"date\": \"2025-05-15\",\n      \"invoice\": \"12346\",\n      \"amount\": \"$50.00\"\n    },\n    {\n      \"date\": \"2025-04-15\",\n      \"invoice\": \"12347\",\n      \"amount\": \"$50.20\"\n    },\n    {\n      \"date\": \"2025-03-15\",\n      \"invoice\": \"12348\",\n      \"amount\": \"$40.00\"\n    },\n    {\n      \"date\": \"2024-02-15\",\n      \"invoice\": \"12349\",\n      \"amount\": \"$50.00\"\n    },\n    {\n      \"date\": \"2024-01-15\",\n      \"invoice\": \"12350\",\n      \"amount\": \"$50.00\"\n    }\n  ]\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
     }
   ],
   "rootChildren": [
@@ -234,6 +296,14 @@
     {
       "type": "route",
       "uuid": "805512d0-5795-4ec7-96dd-8fbc977fe1cf"
+    },
+    {
+      "type": "route",
+      "uuid": "180de85d-1d46-474a-940f-07a697bd6964"
+    },
+    {
+      "type": "route",
+      "uuid": "7dc04397-5c9b-4e36-829d-825c416a0102"
     }
   ],
   "proxyMode": false,

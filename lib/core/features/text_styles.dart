@@ -42,6 +42,12 @@ class TextStyles {
     color: AppsColors.blackColor,
   );
   static final TextStyle caption = TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: AppsColors.blackColor);
+  static final TextStyle captionWhite = TextStyle(
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    color: AppsColors.whiteColor,
+  );
+
   static final TextStyle errorText = TextStyle(fontSize: 14, fontWeight: FontWeight.w400, color: AppsColors.errorColor);
   static final TextStyle linkText = TextStyle(
     fontSize: 16,
@@ -49,6 +55,8 @@ class TextStyles {
     color: AppsColors.primaryColor,
     decoration: TextDecoration.underline,
   );
+  static final headerTextWhite = TextStyle(color: AppsColors.whiteColor, fontSize: 18, fontWeight: FontWeight.w600);
+  static final stepTextWhite = TextStyle(color: AppsColors.whiteColor, fontSize: 18, fontWeight: FontWeight.w600);
   static final TextStyle smallText = TextStyle(fontSize: 12, fontWeight: FontWeight.w400, color: AppsColors.blackColor);
   static final TextStyle largeText = TextStyle(fontSize: 28, fontWeight: FontWeight.bold, color: AppsColors.blackColor);
   static final TextStyle subtitle = TextStyle(fontSize: 18, fontWeight: FontWeight.w500, color: AppsColors.blackColor);

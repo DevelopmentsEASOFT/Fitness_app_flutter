@@ -46,18 +46,30 @@ class _TabsStepCustom extends State<TabsStepCustom> with SingleTickerProviderSta
                 )
                 : const SizedBox.shrink(),
             const SizedBox(height: 16),
-            TabBar(
-              controller: _tabController,
-              labelColor: AppsColors.primaryColor,
-              unselectedLabelColor: AppsColors.whiteColor,
-              indicatorColor: AppsColors.primaryColor,
-              tabs: widget.tabsHeader,
-              tabAlignment: TabAlignment.start,
-              labelStyle: TextStyles.bodyTextWhite,
-              isScrollable: true,
-              padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height * 0.01),
+            Row(
+              children: [
+                Expanded(
+                  child: TabBar(
+                    controller: _tabController,
+                    labelColor: AppsColors.primaryColor,
+                    unselectedLabelColor: AppsColors.whiteColor,
+                    indicatorColor: AppsColors.primaryColor,
+                    tabs: widget.tabsHeader,
+                    tabAlignment: TabAlignment.center,
+                    labelStyle: TextStyles.bodyTextWhite,
+                    isScrollable: true,
+                    padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.height * 0.01),
+                    dividerHeight: 0,
+                  ),
+                ),
+              ],
             ),
-            Expanded(child: TabBarView(controller: _tabController, children: widget.stepTabs)),
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 15),
+                child: TabBarView(controller: _tabController, children: widget.stepTabs),
+              ),
+            ),
           ],
         ),
       ),
