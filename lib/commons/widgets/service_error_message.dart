@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 
 import '../../core/features/apps_colors.dart';
 
-class ServiceError extends StatelessWidget {
+class ServiceErrorMessage extends StatelessWidget {
   final String? message;
   final VoidCallback? onRetry;
 
-  const ServiceError({super.key, this.message, this.onRetry});
+  const ServiceErrorMessage({super.key, this.message, this.onRetry});
 
   @override
   Widget build(BuildContext context) {

@@ -5,8 +5,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../config/router/app_routes.dart';
-import '../../../../../core/features/app_sizes.dart';
 import '../../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/box_space.dart';
 import '../../../../../core/features/button_styles.dart';
 import '../../../../../core/features/text_styles.dart';
 import '../widgets/login_form.dart';
@@ -30,9 +30,9 @@ class LoginScreen extends ConsumerWidget {
               textAlign: TextAlign.center,
               style: const TextStyle(color: AppsColors.whiteColor, fontSize: 26, fontWeight: FontWeight.bold),
             ),
-            AppSizes.gapH16,
+            BoxSpace.gapH16,
             LoginForm(),
-            AppSizes.gapH24,
+            BoxSpace.gapH24,
             ElevatedButton(
               onPressed: () {},
               style: ButtonStyles.secondaryButton,
@@ -40,12 +40,12 @@ class LoginScreen extends ConsumerWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SvgPicture.asset('assets/icons/google_icon.svg', height: 24, width: 24),
-                  AppSizes.gapW12,
+                  BoxSpace.gapW12,
                   Text(localizations.login_google, style: TextStyles.buttonTextDark),
                 ],
               ),
             ),
-            AppSizes.gapH16,
+            BoxSpace.gapH16,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

@@ -6,10 +6,10 @@ class LoginFormViewModel extends StateNotifier<LoginFormState> {
 
   LoginFormViewModel(this.repository) : super(LoginFormState());
 
-  Future<bool> islogin({required String username, required String password}) async {
+  Future<bool> isLoggedIn({required String username, required String password}) async {
     state = state.copyWith(isLoading: true);
     try {
-      final success = await repository.doLogin(username, password);
+      final success = await repository.login(username, password);
       state = state.copyWith(isLoading: false, success: success);
       return success;
     } catch (e) {

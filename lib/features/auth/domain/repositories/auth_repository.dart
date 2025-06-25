@@ -10,7 +10,7 @@ class AuthRepository {
     ),
   );
 
-  Future<bool> doLogin(String username, String password) async {
+  Future<bool> login(String username, String password) async {
     try {
       final response = await _dio.post('/login', data: {'username': username, 'password': password});
       return response.data['success'] == true;
@@ -19,7 +19,7 @@ class AuthRepository {
     }
   }
 
-  Future<bool> doSignUp({
+  Future<bool> signUp({
     required String name,
     required String email,
     required String phone,

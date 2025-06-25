@@ -3,12 +3,12 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../commons/widgets/app_bar_custom.dart';
+import '../../../../commons/widgets/base_app_bar.dart';
 import '../../../../commons/widgets/tabs_step_custom.dart';
 import '../../../../commons/widgets/under_construction.dart';
 import '../../../../config/router/app_routes.dart';
-import '../../../../core/features/app_sizes.dart';
 import '../../../../core/features/apps_colors.dart';
+import '../../../../core/features/box_space.dart';
 import '../../../../core/features/text_styles.dart';
 import '../../../workouts/ui/widgets/workout_list.dart';
 
@@ -44,7 +44,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with SingleTickerProvid
         isMorning ? localizations.home_greeting(userName) : localizations.home_greetingnight(userName);
 
     return Scaffold(
-      appBar: AppBarCustom(
+      appBar: BaseAppBar(
         automaticallyImplyLeading: false,
         title: Row(
           children: [
@@ -65,7 +65,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with SingleTickerProvid
       backgroundColor: AppsColors.blackColor,
       body: Column(
         children: [
-          AppSizes.gapH12,
+          BoxSpace.gapH12,
           TabsStepCustom(
             stepTabs: [WorkoutList(), UnderConstruction(), UnderConstruction()],
             tabsHeader: [

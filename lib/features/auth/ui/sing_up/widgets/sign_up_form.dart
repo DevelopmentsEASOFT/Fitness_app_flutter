@@ -6,8 +6,8 @@ import 'package:hooks_riverpod/hooks_riverpod.dart';
 import '../../../../../commons/widgets/input_field_custom.dart';
 import '../../../../../commons/widgets/primary_elevated_button_custom.dart';
 import '../../../../../config/router/app_routes.dart';
-import '../../../../../core/features/app_sizes.dart';
 import '../../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/box_space.dart';
 import '../../../data/providers/auth_provider.dart';
 import 'terms_and_privacy_label.dart';
 
@@ -54,7 +54,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
-          AppSizes.gapH32,
+          BoxSpace.gapH32,
           InputFieldCustom(
             controller: _nameController,
             icon: Icons.person,
@@ -66,7 +66,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               return null;
             },
           ),
-          AppSizes.gapH16,
+          BoxSpace.gapH16,
           InputFieldCustom(
             controller: _emailController,
             icon: Icons.email,
@@ -82,7 +82,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               return null;
             },
           ),
-          AppSizes.gapH16,
+          BoxSpace.gapH16,
           InputFieldCustom(
             controller: _phoneController,
             icon: Icons.phone,
@@ -98,7 +98,7 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               return null;
             },
           ),
-          AppSizes.gapH16,
+          BoxSpace.gapH16,
           InputFieldCustom(
             controller: _passwordController,
             icon: Icons.lock,
@@ -115,9 +115,9 @@ class _SignUpFormState extends ConsumerState<SignUpForm> {
               return null;
             },
           ),
-          AppSizes.gapH16,
+          BoxSpace.gapH16,
           TermsAndPrivacyLabel(),
-          AppSizes.gapH24,
+          BoxSpace.gapH24,
           SizedBox(
             width: double.infinity,
             height: 54,

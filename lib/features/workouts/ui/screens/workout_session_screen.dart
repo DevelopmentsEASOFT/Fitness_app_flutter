@@ -5,11 +5,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../config/router/app_routes.dart';
-import '../../../../core/features/app_sizes.dart';
 import '../../../../core/features/apps_colors.dart';
+import '../../../../core/features/box_space.dart';
 import '../../../../core/features/text_styles.dart';
 import '../../data/models/workout_exercise.dart';
 import '../../data/providers/workouts_provider.dart';
+import '../utils/workout_utils.dart';
 import '../view_model/workouts_view_model.dart';
 
 class WorkoutSessionScreen extends ConsumerStatefulWidget {
@@ -133,9 +134,9 @@ class _WorkoutDetailsScreenState extends ConsumerState<WorkoutSessionScreen> {
                     ],
                   ),
                 ),
-                AppSizes.gapH50,
+                BoxSpace.gapH50,
                 Text(
-                  _formatDuration(remainingDuration),
+                  WorkoutUtils.formatDuration(remainingDuration),
                   style: const TextStyle(
                     color: AppsColors.secondaryColor,
                     fontSize: 48,
@@ -275,12 +276,6 @@ class _WorkoutDetailsScreenState extends ConsumerState<WorkoutSessionScreen> {
         ],
       ),
     );
-  }
-
-  String _formatDuration(Duration duration) {
-    final minutes = duration.inMinutes.remainder(60).toString().padLeft(2, '0');
-    final seconds = duration.inSeconds.remainder(60).toString().padLeft(2, '0');
-    return '$minutes:$seconds';
   }
 }
 

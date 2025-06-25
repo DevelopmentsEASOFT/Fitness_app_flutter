@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-import '../../../../../commons/widgets/app_bar_custom.dart';
+import '../../../../../commons/widgets/base_app_bar.dart';
 import '../../../../../commons/widgets/input_field_custom.dart';
 import '../../../../../commons/widgets/primary_elevated_button_custom.dart';
-import '../../../../../core/features/app_sizes.dart';
 import '../../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/box_space.dart';
 import '../../../../../core/features/spacing_tokens.dart';
 import '../../../../../core/features/text_styles.dart';
 import '../../../data/providers/profile_provider.dart';
@@ -34,9 +34,8 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     super.dispose();
   }
 
-  Future<void> _updateProfile() async {
-    if (!_formKey.currentState!.validate()) return;
-    await ref
+  Future<bool?> _updateProfile() async {
+    return await ref
         .read(profileViewModelProvider.notifier)
         .updateProfile(
           name: _nameController.text,
@@ -44,18 +43,6 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
           phone: _phoneController.text,
           password: _passwordController.text,
         );
-    final state = ref.read(profileViewModelProvider);
-    if (!mounted) return;
-    if (state.success == true) {
-      ScaffoldMessenger.of(
-        context,
-      ).showSnackBar(SnackBar(content: Text(AppLocalizations.of(context)!.profile_save_changes)));
-      Navigator.of(context).pop();
-    } else if (state.error != null) {
-      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(state.error!)));
-    } else {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Error updating profile')));
-    }
   }
 
   @override
@@ -64,7 +51,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
     final state = ref.watch(profileViewModelProvider);
 
     return Scaffold(
-      appBar: AppBarCustom(
+      appBar: BaseAppBar(
         automaticallyImplyLeading: true,
         title: Text(localizations.profile_edit, style: TextStyles.headerTextWhite),
       ),
@@ -75,7 +62,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
           key: _formKey,
           child: Column(
             children: [
-              AppSizes.gapH20,
+              BoxSpace.gapH20,
               InputFieldCustom(
                 controller: _nameController,
                 icon: Icons.person,
@@ -87,7 +74,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                   return null;
                 },
               ),
-              AppSizes.gapH20,
+              BoxSpace.gapH20,
               InputFieldCustom(
                 controller: _emailController,
                 icon: Icons.email,
@@ -103,7 +90,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                   return null;
                 },
               ),
-              AppSizes.gapH20,
+              BoxSpace.gapH20,
               InputFieldCustom(
                 controller: _passwordController,
                 icon: Icons.lock,
@@ -116,7 +103,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                   return null;
                 },
               ),
-              AppSizes.gapH20,
+              BoxSpace.gapH20,
               InputFieldCustom(
                 controller: _phoneController,
                 icon: Icons.phone,
@@ -137,14 +124,31 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
                 children: [
                   Expanded(
                     child: PrimaryElevatedButtonCustom(
-                      onPressed: state.isLoading ? () {} : () => _updateProfile(),
+                      onPressed:
+                          state.isLoading
+                              ? () {}
+                              : () {
+                                if (!_formKey.currentState!.validate()) return;
+                                _updateProfile().then((success) {
+                                  if (success == true) {
+                                    ScaffoldMessenger.of(
+                                      context,
+                                    ).showSnackBar(SnackBar(content: Text(localizations.profile_save_changes)));
+                                    Navigator.pop(context);
+                                  } else {
+                                    ScaffoldMessenger.of(
+                                      context,
+                                    ).showSnackBar(SnackBar(content: Text('Error updating profile')));
+                                  }
+                                });
+                              },
                       text: localizations.profile_save_changes,
                       isLoading: state.isLoading,
                     ),
                   ),
                 ],
               ),
-              AppSizes.gapH16,
+              BoxSpace.gapH16,
             ],
           ),
         ),

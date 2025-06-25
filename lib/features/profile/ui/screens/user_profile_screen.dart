@@ -4,7 +4,7 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../commons/widgets/app_bar_custom.dart';
+import '../../../../commons/widgets/base_app_bar.dart';
 import '../../../../core/features/apps_colors.dart';
 import '../../../../core/features/text_styles.dart';
 
@@ -21,7 +21,7 @@ class _ProfileScreenState extends ConsumerState<UserProfileScreen> {
     final localizations = AppLocalizations.of(context)!;
 
     return Scaffold(
-      appBar: AppBarCustom(
+      appBar: BaseAppBar(
         automaticallyImplyLeading: true,
         title: Text(localizations.tab_profile, style: TextStyles.headerTextWhite),
         actions: [

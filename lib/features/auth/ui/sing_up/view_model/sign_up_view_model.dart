@@ -14,7 +14,7 @@ class SignUpViewModel extends StateNotifier<SignUpState> {
   }) async {
     state = state.copyWith(isLoading: true, error: null, success: null);
     try {
-      final result = await repository.doSignUp(name: name, email: email, phone: phone, password: password);
+      final result = await repository.signUp(name: name, email: email, phone: phone, password: password);
       state = state.copyWith(isLoading: false, success: result, error: null);
       return result;
     } catch (e) {

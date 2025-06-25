@@ -3,10 +3,10 @@ import 'package:go_router/go_router.dart';
 import 'package:riverpod/riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
-import '../../features/auth/ui/login/screens/auth_method_selection.dart';
+import '../../features/auth/ui/login/screens/auth_method_selection_screen.dart';
 import '../../features/auth/ui/login/screens/login_screen.dart';
 import '../../features/auth/ui/sing_up/screens/sign_up_screen.dart';
-import '../../features/auth/ui/welcome_view.dart';
+import '../../features/auth/ui/welcome_view_screen.dart';
 import '../../features/home/ui/screens/home_screen.dart';
 import '../../features/membership/ui/screens/member_ship_history_screen.dart';
 import '../../features/membership/ui/screens/member_ship_screen.dart';
@@ -26,14 +26,14 @@ final List<GoRoute> appRoutes = [
     path: AppRoutes.splashScreens,
     name: AppRoutes.splashScreens,
     builder: (BuildContext context, GoRouterState state) {
-      return const WelcomeView();
+      return const WelcomeViewScreen();
     },
   ),
   GoRoute(
     path: AppRoutes.authMethodSelection,
     name: AppRoutes.authMethodSelection,
     builder: (BuildContext context, GoRouterState state) {
-      return const AuthMethodSelection();
+      return const AuthMethodSelectionScreen();
     },
   ),
   GoRoute(

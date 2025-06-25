@@ -4,7 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../commons/widgets/card_section.dart';
-import '../../../../commons/widgets/service_error.dart';
+import '../../../../commons/widgets/service_error_message.dart';
 import '../../../../commons/widgets/reviews_list.dart';
 import '../../../../commons/widgets/tabs_step_custom.dart';
 import '../../../../config/router/app_routes.dart';
@@ -46,7 +46,7 @@ class _WorkoutDetailsScreenState extends ConsumerState<WorkoutDetailsScreen> {
           state.isLoading
               ? WorkoutDetailsSkeleton()
               : state.error != null || details == null
-              ? ServiceError()
+              ? ServiceErrorMessage()
               : WorkoutDetailsContent(details: details, ref: ref, idWorkout: widget.workout.id, isFavorite: isFavorite),
     );
   }

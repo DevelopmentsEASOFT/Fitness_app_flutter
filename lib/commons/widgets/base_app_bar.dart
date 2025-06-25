@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 import '../../core/features/apps_colors.dart';
 
-class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
+class BaseAppBar extends StatelessWidget implements PreferredSizeWidget {
   final Widget title;
   final List<Widget>? actions;
   final bool? automaticallyImplyLeading;
 
-  const AppBarCustom({super.key, required this.title, this.actions, this.automaticallyImplyLeading});
+  const BaseAppBar({super.key, required this.title, this.actions, this.automaticallyImplyLeading});
 
   @override
   Widget build(BuildContext context) {

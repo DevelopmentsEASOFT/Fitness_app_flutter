@@ -3,8 +3,8 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../commons/widgets/service_error.dart';
-import '../../../../commons/widgets/app_bar_custom.dart';
+import '../../../../commons/widgets/service_error_message.dart';
+import '../../../../commons/widgets/base_app_bar.dart';
 import '../../../../commons/widgets/primary_elevated_button_custom.dart';
 import '../../../../config/router/app_routes.dart';
 import '../../../../core/features/apps_colors.dart';
@@ -34,7 +34,7 @@ class _MembershipViewState extends ConsumerState<MembershipScreen> {
     final state = ref.watch(memberShipViewModelProvider);
 
     return Scaffold(
-      appBar: AppBarCustom(
+      appBar: BaseAppBar(
         automaticallyImplyLeading: true,
         title: Text(localizations.member_ship, style: TextStyles.headerTextWhite),
       ),
@@ -43,7 +43,7 @@ class _MembershipViewState extends ConsumerState<MembershipScreen> {
           state.isLoading
               ? const Center(child: CircularProgressIndicator())
               : state.error != null || state.membership == null
-              ? ServiceError()
+              ? ServiceErrorMessage()
               : MembershipInfo(localizations: localizations, membership: state.membership),
     );
   }

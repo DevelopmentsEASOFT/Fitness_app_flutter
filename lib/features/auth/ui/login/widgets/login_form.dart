@@ -31,7 +31,7 @@ class _LoginFormState extends ConsumerState<LoginForm> {
   Future<bool> _isLoginValid() async {
     return await ref
         .read(loginViewModelProvider.notifier)
-        .islogin(username: _usernameController.text, password: _passwordController.text);
+        .isLoggedIn(username: _usernameController.text, password: _passwordController.text);
   }
 
   @override

@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../../commons/widgets/service_error.dart';
+import '../../../../commons/widgets/service_error_message.dart';
 import '../../../../config/router/app_routes.dart';
-import '../../../../core/features/app_sizes.dart';
 import '../../../../core/features/apps_colors.dart';
+import '../../../../core/features/box_space.dart';
 import '../../../../core/features/text_styles.dart';
 import '../../data/providers/workouts_provider.dart';
 
@@ -36,11 +36,11 @@ class _WorkoutListState extends ConsumerState<WorkoutList> {
       return const Center(child: CircularProgressIndicator());
     }
     if (state.error != null) {
-      return ServiceError();
+      return ServiceErrorMessage();
     }
     final workoutsList = state.workouts;
     if (workoutsList == null || workoutsList.workouts.isEmpty) {
-      return ServiceError();
+      return ServiceErrorMessage();
     }
 
     return ListView.builder(
@@ -78,7 +78,7 @@ class _WorkoutListState extends ConsumerState<WorkoutList> {
                       style: const TextStyle(color: AppsColors.grayColor, fontWeight: FontWeight.bold),
                     ),
                   ),
-                  AppSizes.gapH50,
+                  BoxSpace.gapH50,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [

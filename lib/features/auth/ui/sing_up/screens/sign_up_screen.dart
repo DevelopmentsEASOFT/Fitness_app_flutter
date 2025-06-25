@@ -4,8 +4,8 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../../../config/router/app_routes.dart';
-import '../../../../../core/features/app_sizes.dart';
 import '../../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/box_space.dart';
 import '../widgets/sign_up_form.dart';
 
 class SignUpScreen extends ConsumerWidget {
@@ -22,14 +22,14 @@ class SignUpScreen extends ConsumerWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AppSizes.gapH16,
+            BoxSpace.gapH16,
             Text(
               localizations.signup_title,
               textAlign: TextAlign.center,
               style: const TextStyle(color: AppsColors.whiteColor, fontSize: 26, fontWeight: FontWeight.bold),
             ),
             SignUpForm(),
-            AppSizes.gapH24,
+            BoxSpace.gapH24,
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

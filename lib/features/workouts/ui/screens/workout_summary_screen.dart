@@ -5,6 +5,7 @@ import '../../../../core/features/apps_colors.dart';
 import '../../data/models/workout_details.dart';
 import '../../data/models/workout_exercise.dart';
 import '../../data/providers/workouts_provider.dart';
+import '../utils/workout_utils.dart';
 
 class WorkoutSummaryScreen extends ConsumerWidget {
   final int calories;
@@ -20,19 +21,12 @@ class WorkoutSummaryScreen extends ConsumerWidget {
     required this.exercisesWorkoutCompleted,
   });
 
-  Duration get elapsedTime =>
-      exercisesWorkoutCompleted?.fold<Duration>(Duration.zero, (total, ex) => total + ex.durationExercise) ??
-      Duration.zero;
-
-  Duration getTotalTimeWorkout(List<WorkoutExercise> list) {
-    return list.fold<Duration>(Duration.zero, (total, workout) => total + workout.durationExercise);
-  }
-
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     WorkoutDetails? exercisesworkout = ref.watch(workoutViewModelProvider).details;
-    final totalTime = getTotalTimeWorkout(exercisesworkout?.exercises ?? []);
-    final percent = elapsedTime.inMinutes / totalTime.inMinutes;
+    final totalTime = WorkoutUtils.getTotalTimeWorkout(exercisesworkout?.exercises ?? []);
+    final elapsedTime = WorkoutUtils.getTotalTimeWorkout(exercisesWorkoutCompleted ?? []);
+    final percent = totalTime.inMinutes > 0 ? elapsedTime.inMinutes / totalTime.inMinutes : 0.0;
     final userName = 'Andres Esquivel';
 
     return Scaffold(
@@ -79,7 +73,7 @@ class WorkoutSummaryScreen extends ConsumerWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      '${elapsedTime.inMinutes.toString().padLeft(2, '0')}:${elapsedTime.inSeconds.remainder(60).toString().padLeft(2, '0')}',
+                      WorkoutUtils.formatDuration(elapsedTime),
                       style: const TextStyle(color: AppsColors.whiteColor, fontSize: 32, fontWeight: FontWeight.bold),
                     ),
                     Text(

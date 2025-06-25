@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import '../../../../commons/widgets/app_bar_custom.dart';
-import '../../../../commons/widgets/service_error.dart';
+import '../../../../commons/widgets/base_app_bar.dart';
+import '../../../../commons/widgets/service_error_message.dart';
 import '../../../../core/features/apps_colors.dart';
 import '../../../../core/features/text_styles.dart';
 import '../../data/models/member_ship_history.dart';
@@ -31,7 +31,7 @@ class _MembershipHistoryViewState extends ConsumerState<MembershipHistoryScreen>
     final state = ref.watch(memberShipViewModelProvider);
 
     return Scaffold(
-      appBar: AppBarCustom(
+      appBar: BaseAppBar(
         automaticallyImplyLeading: true,
         title: Text(localizations.member_ship_history, style: TextStyles.headerTextWhite),
       ),
@@ -40,7 +40,7 @@ class _MembershipHistoryViewState extends ConsumerState<MembershipHistoryScreen>
           state.isLoading
               ? const Center(child: CircularProgressIndicator())
               : state.error != null || state.memberShipHistory == null
-              ? ServiceError()
+              ? ServiceErrorMessage()
               : HistoryShipInfo(localization: localizations, shipInfoList: state.memberShipHistory?.shipList),
     );
   }

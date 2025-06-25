@@ -5,13 +5,13 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../../../config/router/app_routes.dart';
-import '../../../../../core/features/app_sizes.dart';
 import '../../../../../core/features/apps_colors.dart';
+import '../../../../../core/features/box_space.dart';
 import '../../../../../core/features/button_styles.dart';
 import '../../../../../core/features/text_styles.dart';
 
-class AuthMethodSelection extends ConsumerWidget {
-  const AuthMethodSelection({super.key});
+class AuthMethodSelectionScreen extends ConsumerWidget {
+  const AuthMethodSelectionScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -46,14 +46,14 @@ class AuthMethodSelection extends ConsumerWidget {
                     child: Column(
                       children: [
                         Text(localizations.type_login_title, style: TextStyles.heading1White),
-                        AppSizes.gapH20,
+                        BoxSpace.gapH20,
 
                         const SizedBox(height: 20),
                         Text(localizations.type_login_subtitle, style: TextStyles.bodyText),
                       ],
                     ),
                   ),
-                  AppSizes.gapH50,
+                  BoxSpace.gapH50,
                   Row(
                     children: [
                       Expanded(
@@ -69,7 +69,7 @@ class AuthMethodSelection extends ConsumerWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/email_icon.svg', height: 24, width: 24),
-                                AppSizes.gapH12,
+                                BoxSpace.gapH12,
                                 const SizedBox(width: 12),
                                 Text(localizations.type_login_email, style: TextStyles.buttonText),
                               ],
@@ -94,7 +94,7 @@ class AuthMethodSelection extends ConsumerWidget {
                               mainAxisAlignment: MainAxisAlignment.center,
                               children: [
                                 SvgPicture.asset('assets/icons/google_icon.svg', height: 24, width: 24),
-                                AppSizes.gapH12,
+                                BoxSpace.gapH12,
                                 const SizedBox(width: 12),
                                 Text(localizations.type_login_google, style: TextStyles.buttonTextDark),
                               ],
@@ -104,7 +104,7 @@ class AuthMethodSelection extends ConsumerWidget {
                       ),
                     ],
                   ),
-                  AppSizes.gapH16,
+                  BoxSpace.gapH16,
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [

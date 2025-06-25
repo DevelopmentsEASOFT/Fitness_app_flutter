@@ -6,7 +6,7 @@ class ProfileViewModel extends StateNotifier<ProfileState> {
 
   ProfileViewModel(this.repository) : super(ProfileState());
 
-  Future<void> updateProfile({
+  Future<bool> updateProfile({
     required String name,
     required String email,
     required String phone,
@@ -16,8 +16,10 @@ class ProfileViewModel extends StateNotifier<ProfileState> {
     try {
       final result = await repository.updateProfile(name: name, email: email, phone: phone, password: password);
       state = state.copyWith(isLoading: false, success: result, error: null);
+      return result;
     } catch (e) {
       state = state.copyWith(isLoading: false, success: false, error: e.toString());
+      return false;
     }
   }
 }

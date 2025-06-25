@@ -4,13 +4,13 @@ import 'package:go_router/go_router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 import '../../../config/router/app_routes.dart';
-import '../../../core/features/app_sizes.dart';
 import '../../../core/features/apps_colors.dart';
+import '../../../core/features/box_space.dart';
 import '../../../core/features/button_styles.dart';
 import '../../../core/features/text_styles.dart';
 
-class WelcomeView extends ConsumerWidget {
-  const WelcomeView({super.key});
+class WelcomeViewScreen extends ConsumerWidget {
+  const WelcomeViewScreen({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
@@ -40,9 +40,9 @@ class WelcomeView extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Text(localizations.title_welcome, style: TextStyles.heading1White),
-                  AppSizes.gapH5,
+                  BoxSpace.gapH5,
                   Text(localizations.txt_welcome, style: TextStyles.bodyTextWhite, textAlign: TextAlign.center),
-                  AppSizes.gapH20,
+                  BoxSpace.gapH20,
                   Row(
                     children: [
                       Expanded(
