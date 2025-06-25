@@ -5,7 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../../commons/widgets/base_app_bar.dart';
 import '../../../../commons/widgets/tabs_step_custom.dart';
-import '../../../../commons/widgets/under_construction.dart';
+import '../../../../commons/widgets/under_construction_message.dart';
 import '../../../../config/router/app_routes.dart';
 import '../../../../core/features/apps_colors.dart';
 import '../../../../core/features/box_space.dart';
@@ -67,7 +67,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> with SingleTickerProvid
         children: [
           BoxSpace.gapH12,
           TabsStepCustom(
-            stepTabs: [WorkoutList(), UnderConstruction(), UnderConstruction()],
+            stepTabs: [WorkoutList(), UnderConstructionMessage(), UnderConstructionMessage()],
             tabsHeader: [
               Tab(child: Text(localizations.tab_my_workouts, style: TextStyles.stepTextWhite)),
               Tab(child: Text(localizations.tab_estadistics, style: TextStyles.stepTextWhite)),

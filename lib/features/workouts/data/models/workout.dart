@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class Workout {
   final int id;
+  final bool isFavorite;
   final String title;
   final String trainer;
   final String imageUrl;
@@ -11,6 +12,7 @@ class Workout {
 
   Workout({
     required this.id,
+    required this.isFavorite,
     required this.title,
     required this.trainer,
     required this.imageUrl,
@@ -22,6 +24,7 @@ class Workout {
   factory Workout.fromJson(Map<String, dynamic> json) {
     return Workout(
       id: json['id'] as int,
+      isFavorite: json['is_favorite'] as bool? ?? false,
       title: json['title'] as String,
       trainer: json['trainer'] as String,
       imageUrl: json['imageUrl'] as String,
@@ -29,18 +32,6 @@ class Workout {
       typeColor: json['typeColor'] as String,
       messages: json['messages'] as int,
     );
-  }
-
-  Map<String, dynamic> toJson() {
-    return {
-      'id': id,
-      'title': title,
-      'trainer': trainer,
-      'imageUrl': imageUrl,
-      'type': type,
-      'typeColor': typeColor,
-      'messages': messages,
-    };
   }
 
   Color get typeColorValue {

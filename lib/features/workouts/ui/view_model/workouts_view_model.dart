@@ -14,20 +14,19 @@ class WorkoutsViewModel extends StateNotifier<WorkoutState> {
       final details = await repository.getWorkoutDetails(workoutId);
       state = state.copyWith(isLoading: false, details: details, error: null);
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      state = state.copyWith(isLoading: false, details: null, error: null);
     }
   }
 
   Future<void> toggleFavoriteWorkout(int workoutId, bool isFavorite) async {
     try {
-      final success = await repository.toggleFavoriteWorkout(workoutId, isFavorite);
+      final bool favoriteUpdate = isFavorite ? false : true;
+      final success = await repository.toggleFavoriteWorkout(workoutId, favoriteUpdate);
       if (success) {
         state = state.copyWith(isFavorite: !isFavorite);
-      } else {
-        state = state.copyWith(error: 'No se pudo cambiar el estado de favorito');
       }
     } catch (e) {
-      state = state.copyWith(error: 'No se pudo cambiar el estado de favorito');
+      state = state.copyWith(isFavorite: isFavorite);
     }
   }
 

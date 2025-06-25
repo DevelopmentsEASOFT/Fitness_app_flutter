@@ -39,7 +39,7 @@ class _WorkoutDetailsScreenState extends ConsumerState<WorkoutDetailsScreen> {
     final WorkoutState state = ref.watch(workoutViewModelProvider);
 
     final WorkoutDetails? details = state.details;
-    final bool? isFavorite = state.isFavorite ?? details?.overview.isFavorite;
+    final bool isFavorite = state.isFavorite ?? widget.workout.isFavorite;
     return Scaffold(
       backgroundColor: AppsColors.blackColor,
       body:

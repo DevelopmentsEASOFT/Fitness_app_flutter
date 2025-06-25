@@ -35,7 +35,7 @@ class SignUpScreen extends ConsumerWidget {
               children: [
                 Text(localizations.signup_already_registered, style: const TextStyle(color: AppsColors.whiteColor)),
                 TextButton(
-                  onPressed: () => context.pushNamed(AppRoutes.signUp),
+                  onPressed: () => context.pushReplacementNamed(AppRoutes.signIn),
                   child: Text(
                     localizations.signup_signin,
                     style: const TextStyle(color: AppsColors.primaryColor, fontWeight: FontWeight.bold),

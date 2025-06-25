@@ -94,7 +94,7 @@ class MembershipInfo extends ConsumerWidget {
           SizedBox(
             width: double.infinity,
             child: PrimaryElevatedButtonCustom(
-              onPressed: () => context.pushNamed(AppRoutes.membershipProfile),
+              onPressed: () => context.pushNamed(AppRoutes.historyMembership),
               text: localizations.member_ship_history,
               isLoading: false,
             ),

@@ -89,7 +89,9 @@ class _WorkoutListState extends ConsumerState<WorkoutList> {
                           Text(localizations.workouts_trainer(workout.trainer), style: TextStyles.bodyTextWhite),
                         ],
                       ),
-                      const Icon(Icons.favorite, color: Colors.white),
+                      workout.isFavorite
+                          ? const Icon(Icons.favorite, color: AppsColors.secondaryColor)
+                          : const Icon(Icons.favorite_border, color: AppsColors.secondaryColor),
                     ],
                   ),
                 ],

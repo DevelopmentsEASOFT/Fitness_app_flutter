@@ -35,17 +35,17 @@ class WorkoutOverview {
     return WorkoutOverview(
       title: json['title'],
       trainer: Trainer.fromJson(json['trainer']),
-      exercisesCount: json['exercisesCount'],
-      isFavorite: json['isFavorite'],
+      exercisesCount: json['exercises_count'],
+      isFavorite: json['is_favorite'],
       duration: json['duration'],
       session: json['session'],
       level: json['level'],
       description: json['description'],
-      isPremium: json['isPremium'],
+      isPremium: json['is_premium'],
       rating: (json['rating'] as num).toDouble(),
-      reviewsCount: json['reviewsCount'],
-      consultationAvailable: json['consultationAvailable'],
-      imageUrl: json['imageUrl'],
+      reviewsCount: json['reviews_count'],
+      consultationAvailable: json['consultation_available'],
+      imageUrl: json['image_url'],
     );
   }
 }

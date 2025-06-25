@@ -5,6 +5,6 @@ class ReviewUser {
   ReviewUser({required this.name, required this.avatarUrl});
 
   factory ReviewUser.fromJson(Map<String, dynamic> json) {
-    return ReviewUser(name: json['name'], avatarUrl: json['avatarUrl']);
+    return ReviewUser(name: json['name'], avatarUrl: json['avatar_url']);
   }
 }

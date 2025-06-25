@@ -6,7 +6,7 @@ import '../../data/models/user_member_ship.dart';
 class MembershipRepository {
   final _dio = Dio(
     BaseOptions(
-      baseUrl: 'http://localhost:3002',
+      baseUrl: 'https://and-fitness-member-ship.firebaseio.com/membership_users/1/',
       connectTimeout: const Duration(milliseconds: 5000),
       receiveTimeout: const Duration(milliseconds: 3000),
       headers: {'Content-Type': 'application/json'},
@@ -14,7 +14,7 @@ class MembershipRepository {
   );
   Future<UserMembership> getMembershipInfo() async {
     try {
-      final response = await _dio.get('/membership/info');
+      final response = await _dio.get('membership_details.json');
       return UserMembership.fromJson(response.data);
     } catch (e) {
       throw Exception('Error fetching membership info: $e');
@@ -23,7 +23,7 @@ class MembershipRepository {
 
   Future<MembershipHistoryList> getMembershipHistory() async {
     try {
-      final response = await _dio.get('/membership/history');
+      final response = await _dio.get('payment_history.json');
       return MembershipHistoryList.fromJson(response.data);
     } catch (e) {
       throw Exception('Error fetching membership info: $e');
