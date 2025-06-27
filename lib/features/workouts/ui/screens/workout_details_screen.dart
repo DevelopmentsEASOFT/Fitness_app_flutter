@@ -75,7 +75,7 @@ class WorkoutDetailsContent extends StatelessWidget {
         CardSection(
           imageCard: Image.network(details!.overview.imageUrl, fit: BoxFit.cover, alignment: Alignment.centerLeft),
           onFavorite: () {
-            ref.read(workoutViewModelProvider.notifier).toggleFavoriteWorkout(idWorkout, isFavorite ?? false);
+            ref.read(workoutViewModelProvider.notifier).updateFavoriteWorkout(idWorkout, isFavorite ?? false);
           },
           isFavorite: isFavorite,
           returnBack: () => Navigator.pop(context),

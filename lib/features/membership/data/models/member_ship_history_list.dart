@@ -6,11 +6,7 @@ class MembershipHistoryList {
   MembershipHistoryList({required this.shipList});
 
   factory MembershipHistoryList.fromJson(Map<String, dynamic> json) {
-    return MembershipHistoryList(
-      shipList:
-          (json['shipList'] as List)
-              .map((workout) => MembershipHistory.fromJson(workout as Map<String, dynamic>))
-              .toList(),
-    );
+    final historyItems = json.values.map((item) => MembershipHistory.fromJson(item as Map<String, dynamic>)).toList();
+    return MembershipHistoryList(shipList: historyItems);
   }
 }

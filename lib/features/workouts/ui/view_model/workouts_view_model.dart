@@ -18,10 +18,10 @@ class WorkoutsViewModel extends StateNotifier<WorkoutState> {
     }
   }
 
-  Future<void> toggleFavoriteWorkout(int workoutId, bool isFavorite) async {
+  Future<void> updateFavoriteWorkout(int workoutId, bool isFavorite) async {
     try {
-      final bool favoriteUpdate = isFavorite ? false : true;
-      final success = await repository.toggleFavoriteWorkout(workoutId, favoriteUpdate);
+      final bool favoriteUpdate = !isFavorite;
+      final success = await repository.updateFavoriteWorkout(workoutId, favoriteUpdate);
       if (success) {
         state = state.copyWith(isFavorite: !isFavorite);
       }

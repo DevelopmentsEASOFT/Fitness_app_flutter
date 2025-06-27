@@ -1,22 +1,17 @@
 import 'package:dio/dio.dart';
-
+import '../../../../core/api/api_endpoints.dart';
 import '../../data/models/workout_details.dart';
 import '../../data/models/workout_list.dart';
+import '../exceptions/workout_exception.dart';
 
 class WorkoutRepository {
-  final _dio = Dio(
-    BaseOptions(
-      baseUrl: 'https://and-fitness-4e047.firebaseio.com/',
-      connectTimeout: const Duration(milliseconds: 5000),
-      receiveTimeout: const Duration(milliseconds: 3000),
-      headers: {'Content-Type': 'application/json'},
-    ),
-  );
+  const WorkoutRepository(this._dio);
+  final Dio _dio;
 
   Future<WorkoutList> getWorkouts() async {
-    final response = await _dio.get('/workouts.json');
+    final response = await _dio.get(ApiEndpoints.workouts);
     if (response.data == null) {
-      throw Exception('Workout not found');
+      throw WorkoutException('Workout not found');
     }
 
     if (response.data is List) {
@@ -28,29 +23,29 @@ class WorkoutRepository {
       return WorkoutList.fromJson(response.data as Map<String, dynamic>);
     }
 
-    throw Exception('Unexpected format for workout data');
+    throw WorkoutException('Unexpected format for workout data');
   }
 
   Future<WorkoutDetails> getWorkoutDetails(int workoutId) async {
     try {
-      final response = await _dio.get('/workout_details/$workoutId.json');
+      final response = await _dio.get(ApiEndpoints.workoutDetails(workoutId));
 
       if (response.data != null) {
         return WorkoutDetails.fromJson(response.data as Map<String, dynamic>);
       } else {
-        throw Exception('Workout details not found for ID: $workoutId');
+        throw WorkoutException('Workout details not found for ID: $workoutId');
       }
     } catch (e) {
-      throw Exception('Error fetching workout details: $e');
+      throw WorkoutException('Error fetching workout details: $e');
     }
   }
 
-  Future<bool> toggleFavoriteWorkout(int workoutId, bool isFavorite) async {
+  Future<bool> updateFavoriteWorkout(int workoutId, bool isFavorite) async {
     try {
-      await _dio.patch('/workouts/$workoutId.json', data: {'is_favorite': isFavorite});
+      await _dio.patch(ApiEndpoints.workout(workoutId), data: {'is_favorite': isFavorite});
       return true;
     } catch (e) {
-      throw Exception('Error update workout state favorite');
+      throw WorkoutException('Error update workout state favorite');
     }
   }
 }
