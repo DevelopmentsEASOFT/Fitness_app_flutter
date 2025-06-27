@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../core/features/apps_colors.dart';
+
 class CardSection extends StatelessWidget {
   final Widget? imageCard;
   final void Function() returnBack;
@@ -27,13 +29,15 @@ class CardSection extends StatelessWidget {
           left: 16,
           child: CircleAvatar(
             backgroundColor: Colors.black54,
-            child: IconButton(icon: const Icon(Icons.arrow_back, color: Colors.white), onPressed: returnBack),
+            child: IconButton(icon: const Icon(Icons.arrow_back, color: AppsColors.whiteColor), onPressed: returnBack),
           ),
         ),
         Positioned(
           top: 40,
           right: 16,
-          child: Row(children: [IconButton(icon: const Icon(Icons.share, color: Colors.white), onPressed: onShare)]),
+          child: Row(
+            children: [IconButton(icon: const Icon(Icons.share, color: AppsColors.whiteColor), onPressed: onShare)],
+          ),
         ),
         Positioned(
           bottom: 16,
@@ -41,7 +45,10 @@ class CardSection extends StatelessWidget {
           child: CircleAvatar(
             backgroundColor: Colors.black54,
             child: IconButton(
-              icon: Icon(isFavorite ?? false ? Icons.favorite_border : Icons.favorite, color: Colors.white),
+              icon: Icon(
+                isFavorite ?? false ? Icons.favorite : Icons.favorite_border,
+                color: AppsColors.secondaryColor,
+              ),
               onPressed: onFavorite,
             ),
           ),

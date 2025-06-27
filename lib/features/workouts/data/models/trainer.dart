@@ -6,6 +6,6 @@ class Trainer {
   Trainer({required this.name, required this.avatarUrl, required this.role});
 
   factory Trainer.fromJson(Map<String, dynamic> json) {
-    return Trainer(name: json['name'], avatarUrl: json['avatarUrl'], role: json['role']);
+    return Trainer(name: json['name'], avatarUrl: json['avatar_url'], role: json['role']);
   }
 }

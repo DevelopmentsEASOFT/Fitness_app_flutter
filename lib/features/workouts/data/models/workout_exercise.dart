@@ -8,7 +8,7 @@ class WorkoutExercise {
 
   factory WorkoutExercise.fromJson(Map<String, dynamic> json) {
     return WorkoutExercise(
-      imageUrl: json['imageUrl'] as String,
+      imageUrl: json['image_url'] as String,
       name: json['name'] as String,
       detail: json['detail'] as String?,
       duration: json['duration'] as String?,

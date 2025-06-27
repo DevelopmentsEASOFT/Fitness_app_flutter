@@ -15,6 +15,6 @@ class AppsColors {
   static const Color amberColor = Color(0xFFFFC107);
   static const Color blueColor = Color(0xFF1A72BA);
   static const Color transparentColor = Color(0x00000000);
-  static const Color semiTransparentColor = Color.fromARGB(53, 155, 150, 150);
+  static const Color semiTransparentColor = Color(0x359B9696);
   static const List<Color> gradientColor = [transparentColor, Color(0xDD000000), Color(0xFF000000)];
 }

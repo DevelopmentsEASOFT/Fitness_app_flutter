@@ -39,7 +39,7 @@ class _WorkoutDetailsScreenState extends ConsumerState<WorkoutDetailsScreen> {
     final WorkoutState state = ref.watch(workoutViewModelProvider);
 
     final WorkoutDetails? details = state.details;
-    final bool? isFavorite = state.isFavorite ?? details?.overview.isFavorite;
+    final bool isFavorite = state.isFavorite ?? widget.workout.isFavorite;
     return Scaffold(
       backgroundColor: AppsColors.blackColor,
       body:
@@ -75,7 +75,7 @@ class WorkoutDetailsContent extends StatelessWidget {
         CardSection(
           imageCard: Image.network(details!.overview.imageUrl, fit: BoxFit.cover, alignment: Alignment.centerLeft),
           onFavorite: () {
-            ref.read(workoutViewModelProvider.notifier).toggleFavoriteWorkout(idWorkout, isFavorite ?? false);
+            ref.read(workoutViewModelProvider.notifier).updateFavoriteWorkout(idWorkout, isFavorite ?? false);
           },
           isFavorite: isFavorite,
           returnBack: () => Navigator.pop(context),

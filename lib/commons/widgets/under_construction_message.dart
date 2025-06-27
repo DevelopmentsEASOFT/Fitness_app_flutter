@@ -3,10 +3,10 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import '../../core/features/apps_colors.dart';
 import '../../core/features/text_styles.dart';
 
-class UnderConstruction extends StatelessWidget {
+class UnderConstructionMessage extends StatelessWidget {
   final String? message;
 
-  const UnderConstruction({super.key, this.message});
+  const UnderConstructionMessage({super.key, this.message});
 
   @override
   Widget build(BuildContext context) {
